@@ -95,6 +95,9 @@ img {
 [data-code='oui'] .si-code-non,
 [data-avis='non'] .si-avis-oui,
 [data-avis='oui'] .si-avis-non,
+[data-discussion='non'] .si-discussion-oui,
+[data-contact='non'] .si-contact-oui,
+[data-contact='oui'] .si-contact-non,
 [data-liste='non'] .si-liste-oui,
 [data-formulaire='non'] .si-formulaire-oui,
 [data-attente='non'] .si-attente-oui,
@@ -395,6 +398,9 @@ h3 {
   margin-top: 16px;
   color: var(--text-2);
 }
+#avis .bloc-phrase + .bloc-phrase {
+  margin-top: 12px;
+}
 #liste .bientot,
 #liste .si-appli-oui {
   margin-top: 0;
@@ -473,6 +479,10 @@ form[data-fait='oui'] {
   border-top: 1px solid var(--border);
   color: var(--text-3);
   font-size: 14px;
+}
+.pied p + p {
+  margin-top: 8px;
+  max-width: 44em;
 }
 .pied .marque {
   min-height: 0;

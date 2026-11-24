@@ -36,7 +36,7 @@ window.TEXTES = {
       'Il faut installer Docker, un outil de développeur, et taper deux commandes. L’installateur en un clic n’existe pas encore. Pas encore essayé sur Windows.',
     'inst-3-t': 'Le vrai coach demande ta clé',
     'inst-3-p':
-      'Sans clé, un coach simple répond, gratuitement. Avec ta propre clé (Claude, un service compatible, ou un modèle qui tourne chez toi), c’est le vrai coach. Tes questions partent alors chez ce fournisseur, et c’est lui que tu paies.',
+      'Sans clé, un coach simple répond, gratuitement. Avec ta propre clé (Claude, un service compatible, ou un modèle qui tourne chez toi), c’est le vrai coach. Tes questions partent alors chez ce fournisseur, et c’est lui que tu paies. Le coach a été réglé et essayé avec Claude : c’est avec lui qu’il donne le meilleur. Tu peux brancher une autre IA, le résultat peut changer.',
     'inst-4-t': 'Sur ton téléphone aussi',
     'inst-4-p': 'À la maison, sur le même wifi que l’ordinateur, tant qu’il reste allumé.',
     'inst-bouton': 'Télécharger gratuitement',
@@ -60,11 +60,15 @@ window.TEXTES = {
     'liste-fermee': 'La liste d’attente n’est pas encore ouverte.',
     'liste-essayer': 'Ouvrir {nom} en ligne',
 
-    'avis-titre': 'Un produit jeune',
-    'avis-phrase': '{nom} débute. Des choses manquent, d’autres changeront.',
-    'avis-demande': 'Dis ce qui te manque, ce qui te plaît, et quand le coach se trompe : c’est comme ça qu’il s’améliore.',
-    'avis-bouton': 'Donner mon avis',
+    'avis-titre': 'Un projet ouvert',
+    'avis-phrase': '{nom} se construit avec ses joueurs. Le code est ouvert, les idées aussi.',
+    'avis-modele': 'Chez toi, {nom} est gratuit. La version en ligne sera payante : c’est elle qui fera vivre le projet.',
+    'avis-seul': 'Il débute, et une seule personne le porte pour l’instant. Des choses manquent, d’autres changeront. Tu veux donner ton avis, ou aider à le construire ? Viens en parler.',
+    'avis-discuter': 'Rejoindre la discussion',
+    'avis-bouton': 'Signaler un bug, proposer une idée',
+    'avis-bientot': 'Le salon de discussion ouvre bientôt. Cette page donnera le lien ce jour-là.',
 
+    'pied-vie': 'Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.',
     'pied-marque': 'Chess.com est une marque de son propriétaire. {nom} n’y est pas affilié.',
   },
   en: {
@@ -101,7 +105,7 @@ window.TEXTES = {
       'You need Docker, a developer tool, and two commands. There is no one-click installer yet. Not tested on Windows yet.',
     'inst-3-t': 'The full coach needs your key',
     'inst-3-p':
-      'Without a key, a simple coach answers for free. With your own key (Claude, a compatible service, or a model running at home), you get the full coach. Your questions then go to that provider, and you pay them.',
+      'Without a key, a simple coach answers for free. With your own key (Claude, a compatible service, or a model running at home), you get the full coach. Your questions then go to that provider, and you pay them. The coach was tuned and tested with Claude: that is where it is at its best. You can plug in another AI; results may vary.',
     'inst-4-t': 'On your phone too',
     'inst-4-p': 'At home, on the same wifi as the computer, while it stays on.',
     'inst-bouton': 'Download for free',
@@ -124,11 +128,15 @@ window.TEXTES = {
     'liste-fermee': 'The waiting list is not open yet.',
     'liste-essayer': 'Open {nom} online',
 
-    'avis-titre': 'A young product',
-    'avis-phrase': '{nom} is just starting. Things are missing, others will change.',
-    'avis-demande': 'Tell us what is missing, what you like, and when the coach gets it wrong: that is how it improves.',
-    'avis-bouton': 'Give feedback',
+    'avis-titre': 'An open project',
+    'avis-phrase': '{nom} is built with its players. The code is open, and so are the ideas.',
+    'avis-modele': 'At home, {nom} is free. The online version will be a paid plan: that is what will keep the project alive.',
+    'avis-seul': 'It is just starting, and one person runs it for now. Things are missing, others will change. Want to share feedback, or help build it? Come and talk.',
+    'avis-discuter': 'Join the discussion',
+    'avis-bouton': 'Report a bug, suggest an idea',
+    'avis-bientot': 'The discussion room opens soon. This page will link to it that day.',
 
+    'pied-vie': 'Privacy: this page sets no cookies and does not track you. It is hosted by GitHub, which sees your connection address, like any host.',
     'pied-marque': 'Chess.com is a trademark of its owner. {nom} is not affiliated with it.',
   },
 };

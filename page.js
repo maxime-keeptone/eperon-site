@@ -57,6 +57,8 @@
   }
   brancher('code', R.adresseCode);
   brancher('avis', R.adresseAvis);
+  brancher('discussion', R.adresseDiscussion);
+  racine.setAttribute('data-contact', R.adresseAvis || R.adresseDiscussion ? 'oui' : 'non');
   brancher('appli', R.adresseAppli);
   // La liste d'attente : le formulaire de Brevo s'il est donné, sinon le champ de la page (serveur maison), sinon « pas encore ».
   brancher('formulaire', R.adresseFormulaire);

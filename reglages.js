@@ -11,6 +11,10 @@ window.REGLAGES = {
   // Adresse où les joueurs donnent leur avis (la boîte à idées du dépôt GitHub, gratuite). Vide = « bientôt ».
   adresseAvis: '',
 
+  // Adresse du salon de discussion (l'invitation Discord). Vide = « Le salon de discussion ouvre bientôt ».
+  // ATTENTION : ce lien-ci expire le 24 décembre 2026. À remplacer par un lien sans date de fin.
+  adresseDiscussion: 'https://discord.gg/FC2ppB2Vm',
+
   // LA LISTE D'ATTENTE — pas encore ouverte.
   // Le lien de partage du formulaire d'inscription. La page montre alors un bouton « Laisser mon adresse » qui y mène.
   // Vide = la page dit que la liste n'est pas encore ouverte.

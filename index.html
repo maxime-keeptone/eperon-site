@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-code="non" data-avis="non" data-liste="non" data-formulaire="non" data-attente="non" data-appli="non">
+<html lang="fr" data-code="non" data-avis="non" data-discussion="non" data-contact="non" data-liste="non" data-formulaire="non" data-attente="non" data-appli="non">
   <head>
     <meta charset="utf-8" />
     <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs.
@@ -128,17 +128,20 @@
         </div>
       </section>
 
-      <!-- Un produit jeune : les avis -->
+      <!-- Un projet ouvert : la vision, la discussion, les avis -->
       <section class="bloc" id="avis">
         <div class="bloc-tete">
-          <h2 data-t="avis-titre">Un produit jeune</h2>
-          <p class="bloc-phrase" data-t="avis-phrase">Éperon débute. Des choses manquent, d’autres changeront.</p>
+          <h2 data-t="avis-titre">Un projet ouvert</h2>
+          <p class="bloc-phrase" data-t="avis-phrase">Éperon se construit avec ses joueurs. Le code est ouvert, les idées aussi.</p>
         </div>
-        <div class="si-avis-oui">
-          <p class="bloc-phrase" data-t="avis-demande">Dis ce qui te manque, ce qui te plaît, et quand le coach se trompe : c’est comme ça qu’il s’améliore.</p>
-          <div class="suite">
-            <a class="bouton bouton-second" data-lien="avis" href="#avis" rel="noopener" data-t="avis-bouton">Donner mon avis</a>
+        <div>
+          <p class="bloc-phrase" data-t="avis-modele">Chez toi, Éperon est gratuit. La version en ligne sera payante : c’est elle qui fera vivre le projet.</p>
+          <p class="bloc-phrase" data-t="avis-seul">Il débute, et une seule personne le porte pour l’instant. Des choses manquent, d’autres changeront. Tu veux donner ton avis, ou aider à le construire ? Viens en parler.</p>
+          <div class="suite si-contact-oui">
+            <a class="bouton bouton-principal si-discussion-oui" data-lien="discussion" href="#avis" rel="noopener" data-t="avis-discuter">Rejoindre la discussion</a>
+            <a class="bouton bouton-second si-avis-oui" data-lien="avis" href="#avis" rel="noopener" data-t="avis-bouton">Signaler un bug, proposer une idée</a>
           </div>
+          <p class="bientot si-contact-non" data-t="avis-bientot">Le salon de discussion ouvre bientôt. Cette page donnera le lien ce jour-là.</p>
         </div>
       </section>
     </main>
@@ -147,6 +150,7 @@
       <div>
         <span class="marque" data-nom>Éperon</span>
         <p data-t="pied-marque">Chess.com est une marque de son propriétaire. Éperon n’y est pas affilié.</p>
+        <p data-t="pied-vie">Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
       </div>
       <a class="langue" href="#" id="haut" aria-label="Haut de la page">↑</a>
     </footer>
