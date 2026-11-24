@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr" data-code="non" data-avis="non" data-liste="non" data-formulaire="non" data-attente="non" data-appli="non">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>Éperon — le coach d’échecs qui regarde tes parties</title>
+    <meta
+      name="description"
+      content="Donne ton pseudo Chess.com : le coach trouve les erreurs qui reviennent dans tes parties, te fait travailler dessus et répond à tes questions sur l’échiquier."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="./" aria-label="Éperon"><span data-nom>Éperon</span></a>
+      <button type="button" class="langue" id="bouton-langue" data-t="autre-langue" lang="en">English</button>
+    </header>
+
+    <main>
+      <!-- Le premier écran -->
+      <section class="hero">
+        <div class="hero-texte">
+          <p class="pastille si-code-non"><span class="point" aria-hidden="true"></span><span data-t="hero-pastille">Téléchargement bientôt ouvert</span></p>
+          <h1 data-t="hero-titre">Le coach qui regarde tes parties.</h1>
+          <p class="hero-phrase" data-t="hero-phrase">
+            Donne ton pseudo Chess.com. Il trouve les erreurs qui reviennent, te fait travailler dessus, et répond à tes
+            questions sur l’échiquier.
+          </p>
+          <div class="hero-boutons">
+            <a class="bouton bouton-principal si-code-oui" data-lien="code" href="#installer" rel="noopener" data-t="hero-telecharger">Télécharger gratuitement</a>
+            <a class="bouton bouton-principal si-code-non" href="#installer" data-t="hero-voir">L’installer chez toi</a>
+            <a class="bouton bouton-lien si-attente-oui" href="#liste" data-t="hero-liste">Être prévenu de la version en ligne</a>
+          </div>
+        </div>
+
+        <figure class="hero-image">
+          <div class="ecran">
+            <img src="images/revue-moment-cle.png" width="780" height="994" alt="" data-t-alt="image-alt-revue" />
+          </div>
+          <figcaption data-t="legende">Image de démonstration, joueur inventé.</figcaption>
+        </figure>
+      </section>
+
+      <!-- Ce qu'il fait -->
+      <section class="bloc" id="ce-qu-il-fait">
+        <div class="bloc-tete">
+          <h2 data-t="fait-titre">Ce qu’il fait</h2>
+          <figure class="ecran-seance">
+            <div class="ecran fondu">
+              <img src="images/seance-du-jour.png" width="780" height="352" alt="" data-t-alt="image-alt-seance" loading="lazy" />
+            </div>
+            <figcaption data-t="legende">Image de démonstration, joueur inventé.</figcaption>
+          </figure>
+        </div>
+        <ol class="groupe etapes">
+          <li><span class="numero" aria-hidden="true">1</span><div><h3 data-t="fait-1-t">Il lit tes parties</h3><p data-t="fait-1-p">Il va les chercher tout seul et les analyse coup par coup.</p></div></li>
+          <li><span class="numero" aria-hidden="true">2</span><div><h3 data-t="fait-2-t">Il trouve ce qui revient</h3><p data-t="fait-2-p">Pas une liste de fautes : l’erreur que tu refais, partie après partie.</p></div></li>
+          <li><span class="numero" aria-hidden="true">3</span><div><h3 data-t="fait-3-t">Il te fait travailler dessus</h3><p data-t="fait-3-p">Chaque jour, une séance courte, avec des exercices tirés de tes propres parties.</p></div></li>
+          <li><span class="numero" aria-hidden="true">4</span><div><h3 data-t="fait-4-t">Il répond à tes questions</h3><p data-t="fait-4-p">Sur l’échiquier, à n’importe quel coup : « je joue quoi ? », « c’était une erreur ? ».</p></div></li>
+        </ol>
+      </section>
+
+      <!-- L'installer chez soi -->
+      <section class="bloc" id="installer">
+        <div class="bloc-tete">
+          <h2 data-t="inst-titre">L’installer chez toi</h2>
+          <p class="bloc-phrase" data-t="inst-phrase">Éperon tourne sur ton ordinateur. Tes parties restent chez toi.</p>
+        </div>
+        <div>
+          <div class="groupe plis">
+            <details open>
+              <summary><h3 data-t="inst-2-t">Aujourd’hui, pour les bricoleurs</h3></summary>
+              <p data-t="inst-2-p">Il faut installer Docker, un outil de développeur, et taper deux commandes. L’installateur en un clic n’existe pas encore. Pas encore essayé sur Windows.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="inst-1-t">Gratuit, et le code est ouvert</h3></summary>
+              <p data-t="inst-1-p">Tu peux lire le code, le modifier, le faire tourner comme tu veux.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="inst-3-t">Le vrai coach demande ta clé</h3></summary>
+              <p data-t="inst-3-p">Sans clé, un coach simple répond, gratuitement. Avec ta propre clé (Claude, un service compatible, ou un modèle qui tourne chez toi), c’est le vrai coach. Tes questions partent alors chez ce fournisseur, et c’est lui que tu paies.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="inst-4-t">Sur ton téléphone aussi</h3></summary>
+              <p data-t="inst-4-p">À la maison, sur le même wifi que l’ordinateur, tant qu’il reste allumé.</p>
+            </details>
+          </div>
+          <div class="suite si-code-oui">
+            <a class="bouton bouton-principal" data-lien="code" href="#installer" rel="noopener" data-t="inst-bouton">Télécharger gratuitement</a>
+            <p class="note" data-t="inst-bouton-note">Le lien ouvre le code et son guide d’installation.</p>
+          </div>
+          <p class="bientot si-code-non" data-t="inst-bientot">Le code sera publié bientôt. Cette page donnera le lien ce jour-là.</p>
+        </div>
+      </section>
+
+      <!-- La version en ligne : liste d'attente -->
+      <section class="bloc" id="liste">
+        <div class="bloc-tete">
+          <h2 data-t="liste-titre">La version en ligne</h2>
+          <p class="bloc-phrase" data-t="liste-phrase">Plus tard : un compte en ligne, sans rien installer. Ce sera payant. Le prix n’est pas encore fixé.</p>
+        </div>
+        <div>
+          <a class="bouton bouton-second si-appli-oui" data-lien="appli" href="#liste" rel="noopener" data-t="liste-essayer">Ouvrir Éperon en ligne</a>
+          <div class="suite haut si-formulaire-oui">
+            <a class="bouton bouton-principal" data-lien="formulaire" href="#liste" rel="noopener" data-t="liste-ouvrir">Laisser mon adresse</a>
+          </div>
+          <p class="note si-formulaire-oui" data-t="liste-ouvrir-note">Tu confirmes ton adresse par un message. Elle sert seulement à t’écrire le jour de l’ouverture, et chaque message permet de se désinscrire.</p>
+          <div class="groupe carte-liste si-liste-oui">
+            <form id="liste-formulaire" novalidate>
+              <label for="liste-courriel" data-t="liste-label">Ton adresse de courriel</label>
+              <div class="champ-ligne">
+                <input id="liste-courriel" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="toi@exemple.fr" data-t-exemple="liste-exemple" required />
+                <button type="submit" class="bouton bouton-principal" id="liste-bouton" data-t="liste-bouton">Me prévenir</button>
+              </div>
+              <p class="message" id="liste-message" role="status" aria-live="polite"></p>
+              <p class="note" data-t="liste-loi">Elle sert seulement à t’écrire le jour de l’ouverture. Jamais donnée, effacée sur simple demande.</p>
+            </form>
+            <p class="message reussite" id="liste-reussite" role="status" aria-live="polite"></p>
+          </div>
+          <p class="bientot si-attente-non" data-t="liste-fermee">La liste d’attente n’est pas encore ouverte.</p>
+        </div>
+      </section>
+
+      <!-- Un produit jeune : les avis -->
+      <section class="bloc" id="avis">
+        <div class="bloc-tete">
+          <h2 data-t="avis-titre">Un produit jeune</h2>
+          <p class="bloc-phrase" data-t="avis-phrase">Éperon débute. Des choses manquent, d’autres changeront.</p>
+        </div>
+        <div class="si-avis-oui">
+          <p class="bloc-phrase" data-t="avis-demande">Dis ce qui te manque, ce qui te plaît, et quand le coach se trompe : c’est comme ça qu’il s’améliore.</p>
+          <div class="suite">
+            <a class="bouton bouton-second" data-lien="avis" href="#avis" rel="noopener" data-t="avis-bouton">Donner mon avis</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <span class="marque" data-nom>Éperon</span>
+        <p data-t="pied-marque">Chess.com est une marque de son propriétaire. Éperon n’y est pas affilié.</p>
+      </div>
+      <a class="langue" href="#" id="haut" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="reglages.js"></script>
+    <script src="textes.js"></script>
+    <script src="page.js"></script>
+  </body>
+</html>

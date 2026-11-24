@@ -1,0 +1,134 @@
+// Tous les mots de la page, en français puis en anglais. Une clé = un endroit de la page (attribut data-t).
+// {nom} est remplacé par le nom du produit (site/reglages.js).
+window.TEXTES = {
+  fr: {
+    'titre-page': '{nom} — le coach d’échecs qui regarde tes parties',
+    'autre-langue': 'English',
+    'hero-pastille': 'Téléchargement bientôt ouvert',
+    'hero-titre': 'Le coach qui regarde tes parties.',
+    'hero-phrase':
+      'Donne ton pseudo Chess.com. Il trouve les erreurs qui reviennent, te fait travailler dessus, et répond à tes questions sur l’échiquier.',
+    'hero-telecharger': 'Télécharger gratuitement',
+    'hero-voir': 'L’installer chez toi',
+    'hero-liste': 'Être prévenu de la version en ligne',
+    'image-alt-revue':
+      'L’écran du coach : un échiquier, un moment clé de la partie, et la consigne « À toi : trouve mieux que exd5 ».',
+    'image-alt-seance':
+      'L’écran « Aujourd’hui » : le mot du coach et une séance de quinze minutes en trois étapes.',
+    'legende': 'Image de démonstration, joueur inventé.',
+
+    'fait-titre': 'Ce qu’il fait',
+    'fait-1-t': 'Il lit tes parties',
+    'fait-1-p': 'Il va les chercher tout seul et les analyse coup par coup.',
+    'fait-2-t': 'Il trouve ce qui revient',
+    'fait-2-p': 'Pas une liste de fautes : l’erreur que tu refais, partie après partie.',
+    'fait-3-t': 'Il te fait travailler dessus',
+    'fait-3-p': 'Chaque jour, une séance courte, avec des exercices tirés de tes propres parties.',
+    'fait-4-t': 'Il répond à tes questions',
+    'fait-4-p': 'Sur l’échiquier, à n’importe quel coup : « je joue quoi ? », « c’était une erreur ? ».',
+
+    'inst-titre': 'L’installer chez toi',
+    'inst-phrase': '{nom} tourne sur ton ordinateur. Tes parties restent chez toi.',
+    'inst-1-t': 'Gratuit, et le code est ouvert',
+    'inst-1-p': 'Tu peux lire le code, le modifier, le faire tourner comme tu veux.',
+    'inst-2-t': 'Aujourd’hui, pour les bricoleurs',
+    'inst-2-p':
+      'Il faut installer Docker, un outil de développeur, et taper deux commandes. L’installateur en un clic n’existe pas encore. Pas encore essayé sur Windows.',
+    'inst-3-t': 'Le vrai coach demande ta clé',
+    'inst-3-p':
+      'Sans clé, un coach simple répond, gratuitement. Avec ta propre clé (Claude, un service compatible, ou un modèle qui tourne chez toi), c’est le vrai coach. Tes questions partent alors chez ce fournisseur, et c’est lui que tu paies.',
+    'inst-4-t': 'Sur ton téléphone aussi',
+    'inst-4-p': 'À la maison, sur le même wifi que l’ordinateur, tant qu’il reste allumé.',
+    'inst-bouton': 'Télécharger gratuitement',
+    'inst-bouton-note': 'Le lien ouvre le code et son guide d’installation.',
+    'inst-bientot': 'Le code sera publié bientôt. Cette page donnera le lien ce jour-là.',
+
+    'liste-titre': 'La version en ligne',
+    'liste-phrase':
+      'Plus tard : un compte en ligne, sans rien installer. Ce sera payant. Le prix n’est pas encore fixé.',
+    'liste-ouvrir': 'Laisser mon adresse',
+    'liste-ouvrir-note': 'Tu confirmes ton adresse par un message. Elle sert seulement à t’écrire le jour de l’ouverture, et chaque message permet de se désinscrire.',
+    'liste-label': 'Ton adresse de courriel',
+    'liste-exemple': 'toi@exemple.fr',
+    'liste-bouton': 'Me prévenir',
+    'liste-envoi': 'Envoi…',
+    'liste-loi': 'Elle sert seulement à t’écrire le jour de l’ouverture. Jamais donnée, effacée sur simple demande.',
+    'liste-ok': 'C’est noté. Tu recevras un message le jour de l’ouverture.',
+    'liste-erreur': 'L’envoi n’a pas marché. Ton adresse est toujours là : réessaie.',
+    'liste-invalide': 'Cette adresse a l’air incomplète. Vérifie-la.',
+    'liste-vide': 'Écris d’abord ton adresse.',
+    'liste-fermee': 'La liste d’attente n’est pas encore ouverte.',
+    'liste-essayer': 'Ouvrir {nom} en ligne',
+
+    'avis-titre': 'Un produit jeune',
+    'avis-phrase': '{nom} débute. Des choses manquent, d’autres changeront.',
+    'avis-demande': 'Dis ce qui te manque, ce qui te plaît, et quand le coach se trompe : c’est comme ça qu’il s’améliore.',
+    'avis-bouton': 'Donner mon avis',
+
+    'pied-marque': 'Chess.com est une marque de son propriétaire. {nom} n’y est pas affilié.',
+  },
+  en: {
+    'titre-page': '{nom} — the chess coach that studies your games',
+    'autre-langue': 'Français',
+    'hero-pastille': 'Download opening soon',
+    'hero-titre': 'The coach that studies your games.',
+    'hero-phrase':
+      'Give it your Chess.com username. It finds the mistakes you keep making, drills you on them, and answers your questions right on the board.',
+    'hero-telecharger': 'Download for free',
+    'hero-voir': 'Run it at home',
+    'hero-liste': 'Tell me when the online version opens',
+    'image-alt-revue':
+      'The coach screen: a chessboard, a key moment of the game, and the prompt “Your turn: find better than exd5”.',
+    'image-alt-seance': 'The “Today” screen: a word from the coach and a fifteen-minute session in three steps.',
+    'legende': 'Demo image, made-up player. The app is in French for now.',
+
+    'fait-titre': 'What it does',
+    'fait-1-t': 'It reads your games',
+    'fait-1-p': 'It fetches them on its own and analyses every move.',
+    'fait-2-t': 'It finds your recurring mistake',
+    'fait-2-p': 'Not a list of blunders: the mistake you repeat, game after game.',
+    'fait-3-t': 'It makes you work on it',
+    'fait-3-p': 'Every day, a short session with exercises taken from your own games.',
+    'fait-4-t': 'It answers your questions',
+    'fait-4-p': 'On the board, at any move: “what do I play?”, “was that a mistake?”',
+
+    'inst-titre': 'Run it at home',
+    'inst-phrase': '{nom} runs on your own computer. Your games stay with you.',
+    'inst-1-t': 'Free and open source',
+    'inst-1-p': 'Read the code, change it, run it any way you like.',
+    'inst-2-t': 'Today, for tinkerers',
+    'inst-2-p':
+      'You need Docker, a developer tool, and two commands. There is no one-click installer yet. Not tested on Windows yet.',
+    'inst-3-t': 'The full coach needs your key',
+    'inst-3-p':
+      'Without a key, a simple coach answers for free. With your own key (Claude, a compatible service, or a model running at home), you get the full coach. Your questions then go to that provider, and you pay them.',
+    'inst-4-t': 'On your phone too',
+    'inst-4-p': 'At home, on the same wifi as the computer, while it stays on.',
+    'inst-bouton': 'Download for free',
+    'inst-bouton-note': 'The link opens the code and its install guide.',
+    'inst-bientot': 'The code will be published soon. This page will link to it that day.',
+
+    'liste-titre': 'The online version',
+    'liste-phrase': 'Later: an online account, nothing to install. It will be a paid plan. The price is not set yet.',
+    'liste-ouvrir': 'Leave my address',
+    'liste-ouvrir-note': 'You confirm your address by email. It is only used to write to you the day it opens, and every message lets you unsubscribe.',
+    'liste-label': 'Your email address',
+    'liste-exemple': 'you@example.com',
+    'liste-bouton': 'Notify me',
+    'liste-envoi': 'Sending…',
+    'liste-loi': 'Only used to write to you the day it opens. Never shared, deleted on request.',
+    'liste-ok': 'Got it. You will get a message the day it opens.',
+    'liste-erreur': 'Sending failed. Your address is still here: try again.',
+    'liste-invalide': 'This address looks incomplete. Check it.',
+    'liste-vide': 'Type your address first.',
+    'liste-fermee': 'The waiting list is not open yet.',
+    'liste-essayer': 'Open {nom} online',
+
+    'avis-titre': 'A young product',
+    'avis-phrase': '{nom} is just starting. Things are missing, others will change.',
+    'avis-demande': 'Tell us what is missing, what you like, and when the coach gets it wrong: that is how it improves.',
+    'avis-bouton': 'Give feedback',
+
+    'pied-marque': 'Chess.com is a trademark of its owner. {nom} is not affiliated with it.',
+  },
+};
