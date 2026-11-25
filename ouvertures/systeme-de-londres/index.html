@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>Le Système de Londres aux échecs : le plan, pas la théorie — Éperon</title>
+    <meta
+      name="description"
+      content="Le Système de Londres expliqué simplement : les premiers coups un par un, le plan des Blancs, le plan des Noirs et le bon réflexe à garder. Pour les joueurs de club."
+    />
+    <link rel="canonical" href="https://eperon.io/ouvertures/systeme-de-londres/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/ouvertures/systeme-de-londres/" />
+    <meta property="og:title" content="Le Système de Londres : le plan, pas la théorie" />
+    <meta property="og:description" content="Les premiers coups du Système de Londres un par un, avec la raison de chacun. Puis le plan des Blancs, le plan des Noirs et le bon réflexe." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/ouvertures/ouverture.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
+      <section class="ouv-haut">
+        <div>
+          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <h1>Le Système de Londres : le plan, pas la théorie.</h1>
+          <p class="hero-phrase">Tu joues 1. d4, puis 2. Ff4, presque à chaque partie. Et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="ouv-cote">Tu as les Blancs. Cette page te parle de ton côté.</p>
+        </div>
+        <div class="ouv-plateau-place">
+          <div id="ouverture-plateau"></div>
+          <noscript>
+            <p class="ouv-secours">La suite, coup par coup : 1. d4 d5 2. Ff4 Cf6 3. e3 c5 4. c3 Cc6 5. Cd2 e6 6. Cgf3 Fd6 7. Fg3 O-O.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="ouv-plans">
+        <div class="ouv-plan">
+          <h2>Le plan des Blancs</h2>
+          <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Finis ton installation</h3><p>Ton fou en d3, puis le roque. Ce sont presque toujours les mêmes coups : c’est la force du Londres.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Pose un cavalier en e5</h3><p>C’est souvent une belle case pour lui. Ton pion d4 et ton fou le soutiennent, et il regarde le camp noir de près.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Prépare la poussée e4</h3><p>Ton cavalier d2 et ton fou d3 la soutiennent. Quand tu es prêt, tu pousses e4 et le jeu s’ouvre pour toi.</p></div></li>
+          </ol>
+        </div>
+        <div class="ouv-plan">
+          <h2>Le plan des Noirs</h2>
+          <p class="ouv-plan-intro">Ce que les Noirs veulent faire, pour que tu le voies venir.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils mettent la pression sur d4</h3><p>Leur pion c5 et leur cavalier c6 l’attaquent déjà. Leur dame peut venir en b6 : de là, elle vise ton pion b2.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils proposent l’échange des fous</h3><p>Leur fou d6 est en face de ton fou de Londres, une de tes meilleures pièces. S’ils le prennent, ton pion h reprend et ta tour gagne une colonne.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils préparent la poussée e5</h3><p>C’est leur coup de liberté. Leur cavalier c6 et leur fou d6 la soutiennent. Après elle, leur fou de c8 a enfin de l’air.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ouv-reflexe">
+        <div class="ouv-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Avant ton coup habituel, regarde le coup d’en face.</h2>
+          <p>Le Londres se joue presque toujours pareil : c’est reposant. Garde quand même un œil sur l’adversaire. Avant chaque coup, demande-toi : qu’est-ce que son dernier coup attaque ? Si rien ne presse, joue ton coup habituel.</p>
+        </div>
+      </section>
+
+      <nav class="ouv-autres" aria-label="Les autres ouvertures">
+        <p>Une autre ouverture ?</p>
+        <ul>
+          <li><a href="/ouvertures/gambit-dame/">Le Gambit dame refusé</a></li>
+          <li><a href="/ouvertures/italienne/">L’Italienne</a></li>
+          <li><a href="/ouvertures/">Toutes les ouvertures</a></li>
+        </ul>
+      </nav>
+
+      <section class="ouv-encart">
+        <div class="ouv-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/ouvertures/systeme-de-londres/donnees.js"></script>
+    <script src="/ouvertures/ouverture.js"></script>
+  </body>
+</html>

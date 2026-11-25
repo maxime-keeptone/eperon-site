@@ -1,0 +1,423 @@
+/* Les pages « ouvertures » : le plan, pas la théorie. Mêmes couleurs que l'accueil (variables de /style.css). */
+
+/* ---- Le haut : le titre à gauche, le plateau à droite (ordinateur) ; l'un sous l'autre au téléphone ---- */
+.ouv-haut {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 8px var(--marge) 0;
+}
+.ouv-haut h1 {
+  font-size: 34px;
+}
+.ouv-haut .hero-phrase {
+  margin-top: 12px;
+}
+/* Le surtitre ramène au sommaire des ouvertures. La zone qui se touche est plus haute que le texte. */
+.ouv-haut .surtitre {
+  margin-bottom: 0;
+}
+.ouv-haut .surtitre a {
+  display: inline-block;
+  padding: 12px 0 10px;
+}
+.ouv-haut .surtitre a::before {
+  content: '‹ ';
+}
+/* « Ici, on regarde… » : la page dit quelle façon de jouer elle montre. */
+.ouv-ligne {
+  margin-top: 6px;
+  max-width: 44em;
+  color: var(--text-3);
+  font-size: var(--t-petit);
+  text-wrap: pretty;
+}
+.ouv-haut .surtitre a:hover {
+  text-decoration: underline;
+}
+/* « Tu as les Noirs. » : de quel côté la page parle. */
+.ouv-cote {
+  margin-top: 10px;
+  max-width: 36em;
+  color: var(--text);
+  font-weight: 700;
+  text-wrap: pretty;
+}
+.ouv-plateau-place {
+  position: relative;
+  margin-top: 20px;
+}
+.ouv-plateau-place::before {
+  content: '';
+  position: absolute;
+  inset: 10% 0;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(129, 182, 76, 0.22), transparent);
+  filter: blur(48px);
+}
+.ouv-secours {
+  color: var(--text-2);
+}
+
+/* ---- La carte du plateau ---- */
+#ouverture-plateau {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.ouv-carte {
+  padding: 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.ouv-plateau {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ouv-dessin {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.ouv-claire {
+  fill: #ecd5b0;
+}
+.ouv-foncee {
+  fill: #b0835a;
+}
+.ouv-marque {
+  fill: rgba(159, 208, 107, 0.55);
+}
+.ouv-repere {
+  font-family: var(--font-body);
+  font-size: 27px;
+  font-weight: 800;
+  pointer-events: none;
+  /* Un liseré de la couleur de la case : le repère reste lisible quand le pied d'une pièce passe derrière. */
+  paint-order: stroke;
+  stroke-width: 6px;
+  stroke-linejoin: round;
+}
+.ouv-a-droite {
+  text-anchor: end;
+}
+/* La couleur de la case d'en face, en plus marqué : ça se lit d'un coup d'œil, même sur une case surlignée. */
+.ouv-sur-claire {
+  fill: #6f4827;
+  stroke: #ecd5b0;
+}
+.ouv-sur-foncee {
+  fill: #fff6e6;
+  stroke: #b0835a;
+}
+/* Les repères font au moins 10 px à l'écran : plus gros dans le dessin quand le plateau est petit. */
+@media (max-width: 379px) {
+  .ouv-repere {
+    font-size: 33px;
+  }
+}
+@media (min-width: 500px) {
+  .ouv-repere {
+    font-size: 24px;
+  }
+}
+
+/* Le coup et sa raison. La place de trois lignes est gardée : rien ne bouge quand la phrase change. */
+.ouv-texte {
+  min-height: 108px;
+  margin-top: 14px;
+}
+.ouv-coup {
+  color: var(--accent-text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+}
+.ouv-phrase {
+  margin-top: 2px;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.ouv-boutons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.ouv-bouton {
+  flex: 1 1 0;
+  min-height: var(--tap);
+  padding: 0 6px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-strong);
+  color: var(--text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 120ms var(--ease);
+}
+.ouv-bouton:hover {
+  background: rgba(255, 238, 214, 0.11);
+}
+.ouv-suivant {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.ouv-suivant:hover {
+  background: rgba(129, 182, 76, 0.24);
+}
+.ouv-precedent::before {
+  content: '‹ ';
+}
+.ouv-suivant::after {
+  content: ' ›';
+}
+.ouv-bouton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Toute la suite, coup par coup : chaque coup se touche. */
+.ouv-suite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.ouv-tour {
+  display: inline-flex;
+  align-items: center;
+}
+.ouv-rang {
+  color: var(--text-3);
+  font-size: var(--t-petit);
+}
+.ouv-pastille {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ouv-pastille:hover {
+  color: var(--text);
+  background: var(--surface-strong);
+}
+.ouv-pastille[aria-current] {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.ouv-aide {
+  display: none;
+  margin-top: 4px;
+  color: var(--text-3);
+  font-size: var(--t-petit);
+}
+
+/* ---- Les plans : deux cartes, puis le bon réflexe ---- */
+.ouv-plans {
+  display: grid;
+  gap: 40px;
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 64px var(--marge) 0;
+}
+.ouv-plan h2 {
+  margin-bottom: 6px;
+}
+.ouv-plan-intro {
+  margin-bottom: 16px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+/* « Une autre ouverture ? » : deux pages voisines et le sommaire. */
+.ouv-autres {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 40px var(--marge) 0;
+}
+.ouv-autres p {
+  font-family: var(--font-title);
+  font-weight: 800;
+}
+.ouv-autres ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.ouv-autres a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 16px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  transition: background-color 120ms var(--ease);
+}
+.ouv-autres a:hover {
+  background: var(--surface-strong);
+}
+.ouv-autres li:last-child a {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.ouv-reflexe,
+.ouv-encart {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 64px var(--marge) 0;
+}
+.ouv-reflexe-corps,
+.ouv-encart-corps {
+  padding: 24px 20px;
+  border-radius: var(--r-lg);
+}
+.ouv-reflexe-corps {
+  background: var(--accent-soft);
+}
+.ouv-reflexe-corps h2 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+.ouv-reflexe-corps p:not(.surtitre) {
+  margin-top: 10px;
+  max-width: 36em;
+  color: var(--text);
+  text-wrap: pretty;
+}
+.ouv-encart-corps {
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.ouv-encart-corps h2 {
+  font-size: 24px;
+  line-height: 1.2;
+}
+.ouv-encart-corps p {
+  margin-top: 10px;
+  max-width: 36em;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.ouv-encart-corps .bouton {
+  margin-top: 8px;
+}
+.ouv-encart-corps .ouv-encart-bouton {
+  margin-top: 20px;
+}
+
+/* ---- Téléphone : le haut est resserré pour que le plateau ET « Suivant » tiennent dans l'écran à l'arrivée.
+   « Tu as les Noirs… » passe sous la carte du plateau, juste avant les plans. ---- */
+@media (max-width: 899px) {
+  .barre:has(+ main .ouv-haut) {
+    padding-bottom: 0;
+  }
+  .ouv-haut {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0;
+  }
+  .ouv-haut > :first-child {
+    display: contents;
+  }
+  .ouv-haut h1 {
+    font-size: 28px;
+  }
+  .ouv-haut .hero-phrase {
+    order: 0; /* l'accueil la déplace au téléphone ; ici elle reste sous le titre */
+    margin-top: 8px;
+  }
+  .ouv-plateau-place {
+    margin-top: 16px;
+  }
+  .ouv-cote {
+    order: 1;
+    margin-top: 24px;
+  }
+}
+
+/* ---- Ordinateur ---- */
+@media (min-width: 900px) {
+  .ouv-haut {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: start;
+    gap: 56px;
+    padding-top: 40px;
+  }
+  /* Le titre se tient au milieu de la hauteur du plateau : pas de grand vide dessous. */
+  .ouv-haut > :first-child {
+    align-self: center;
+    padding-bottom: 80px;
+  }
+  .ouv-haut h1 {
+    font-size: 60px;
+  }
+  .ouv-haut .hero-phrase {
+    margin-top: 24px;
+  }
+  .ouv-plateau-place {
+    margin-top: 0;
+  }
+  .ouv-aide {
+    display: block;
+  }
+  .ouv-plans {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 112px;
+  }
+  .ouv-plan h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .ouv-plan-intro {
+    margin-bottom: 20px;
+  }
+  .ouv-autres {
+    padding-top: 56px;
+  }
+  .ouv-reflexe,
+  .ouv-encart {
+    padding-top: 32px;
+  }
+  .ouv-encart {
+    padding-top: 112px;
+  }
+  .ouv-reflexe-corps,
+  .ouv-encart-corps {
+    padding: 40px 48px;
+  }
+  .ouv-reflexe-corps h2,
+  .ouv-encart-corps h2 {
+    font-size: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ouv-autres a,
+  .ouv-bouton {
+    transition: none;
+  }
+}

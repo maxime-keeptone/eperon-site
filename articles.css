@@ -1,0 +1,223 @@
+/* Les pages de texte : les questions des joueurs, le journal du projet, la page des profs.
+   Mêmes couleurs que l'accueil (variables de /style.css) ; l'encart du bas vient de /ouvertures/ouverture.css. */
+
+/* ---- Le haut : le fil (d'où on vient), la question ou le titre, une phrase ---- */
+.art-haut {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 8px var(--marge) 0;
+}
+.art-haut h1,
+.art-billet h1 {
+  max-width: 17em;
+  font-size: 34px;
+}
+.art-haut .hero-phrase {
+  margin-top: 12px;
+}
+.surtitre a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: inherit;
+}
+/* Le même retour que sur les pages d'ouvertures et de mots : un chevron, puis le nom de la famille. */
+.surtitre a::before {
+  content: '‹ ';
+  white-space: pre;
+}
+.surtitre a:hover {
+  text-decoration: underline;
+}
+/* Le fil se touche (44 px de haut) : on reprend la place en trop au-dessus et en dessous. */
+.surtitre:has(a) {
+  margin: -8px 0 0;
+}
+
+/* ---- La réponse courte : la première chose qu'on lit ---- */
+.art-courte {
+  max-width: 44em;
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--accent-soft);
+}
+.art-courte h2.surtitre {
+  margin-bottom: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+.art-courte p {
+  color: var(--text);
+  font-size: 19px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+/* ---- Les sommaires : une carte par page, toute la carte se touche ---- */
+.art-liste {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 32px var(--marge) 0;
+}
+.art-cartes {
+  display: grid;
+  gap: 12px;
+}
+.art-cartes > li {
+  display: flex;
+}
+.art-carte {
+  position: relative;
+  flex: 1 1 auto;
+  display: block;
+  padding: 18px 44px 18px 20px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: background-color 120ms var(--ease), border-color 120ms var(--ease);
+}
+.art-carte:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+.art-carte:focus-visible {
+  border-radius: var(--r-lg);
+}
+.art-carte::after {
+  content: '›';
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  color: var(--text-3);
+  font-size: 24px;
+  line-height: 1;
+}
+.art-carte h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+.art-carte p {
+  margin-top: 8px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.art-carte .art-date {
+  margin: 0 0 6px;
+  color: var(--accent-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ---- Le billet du journal : une lettre, signée (la carte « histoire » de l'accueil) ---- */
+.art-billet {
+  max-width: calc(46em + 2 * var(--marge));
+  margin: 0 auto;
+  padding: 8px var(--marge) 0;
+}
+.art-lettre {
+  max-width: none;
+  margin-top: 24px;
+}
+.art-lettre > p:first-child {
+  margin-top: 0;
+}
+.art-lettre h2 {
+  margin: 32px 0 0;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.art-lettre h2 + p {
+  margin-top: 10px;
+}
+.histoire-corps.art-lettre .art-lettre-bouton {
+  margin-top: 24px;
+}
+.art-lettre-bouton .bouton {
+  width: 100%;
+}
+.histoire-corps.art-lettre .signature {
+  margin-top: 32px;
+}
+
+/* ---- Le lien de fin de page ---- */
+.art-suite {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 24px var(--marge) 0;
+}
+.art-billet + .art-suite {
+  max-width: calc(46em + 2 * var(--marge));
+}
+.art-suite .bouton-lien {
+  display: inline-flex;
+}
+
+@media (min-width: 640px) {
+  .art-cartes {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .art-lettre-bouton .bouton {
+    width: auto;
+  }
+}
+
+/* ---- Ordinateur ---- */
+@media (min-width: 900px) {
+  .art-haut {
+    padding-top: 40px;
+  }
+  .art-haut h1 {
+    font-size: 60px;
+  }
+  .art-billet {
+    padding-top: 40px;
+  }
+  .art-billet h1 {
+    font-size: 52px;
+  }
+  .art-haut .hero-phrase {
+    margin-top: 24px;
+  }
+  .art-courte {
+    margin-top: 40px;
+    padding: 32px 40px;
+  }
+  .art-courte p {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .art-liste {
+    padding-top: 56px;
+  }
+  .art-carte {
+    padding: 24px 48px 24px 24px;
+  }
+  .art-carte::after {
+    top: 22px;
+    right: 22px;
+  }
+  .art-carte h2 {
+    font-size: 26px;
+  }
+  .art-lettre {
+    margin-top: 40px;
+  }
+  .art-lettre h2 {
+    margin-top: 44px;
+    font-size: 28px;
+  }
+  .art-suite {
+    padding-top: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .art-carte {
+    transition: none;
+  }
+}

@@ -1,0 +1,70 @@
+/* Les liens entre les pages : le petit menu « Apprendre » du bas de page, et les mots du texte qui mènent à leur page. */
+
+/* Le menu « Apprendre » : une ligne de liens sobres, juste au-dessus des mentions. */
+.apprendre {
+  margin: 14px 0 12px;
+}
+.apprendre-titre {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+/* Le point qui sépare deux liens est posé AVANT chaque lien ; celui du début de chaque ligne est caché par le bord gauche. */
+.apprendre ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 -22px;
+  padding: 0;
+  list-style: none;
+  clip-path: inset(-8px -8px -8px 22px);
+}
+.apprendre li {
+  display: inline-flex;
+  align-items: center;
+}
+.apprendre li::before {
+  content: '·';
+  width: 22px;
+  text-align: center;
+  color: var(--text-3);
+}
+.apprendre a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  color: var(--text-2);
+  font-size: 15px;
+}
+.apprendre a:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* La famille où l'on se trouve : un peu plus claire que les autres. */
+.apprendre a[aria-current] {
+  color: var(--text);
+  font-weight: 600;
+}
+/* Téléphone et tablette : un lien par ligne, sans point, facile à toucher (en dessous de 900 px, la ligne ne tient plus). */
+@media (max-width: 899px) {
+  .apprendre ul {
+    flex-direction: column;
+    margin-left: 0;
+    clip-path: none;
+  }
+  .apprendre li::before {
+    content: none;
+  }
+}
+
+/* Un mot des échecs dans le texte : il mène à sa page. */
+.lien-mot {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.lien-mot:hover {
+  text-decoration-thickness: 2px;
+}

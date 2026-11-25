@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>Le mat du couloir aux échecs, en clair — Éperon</title>
+    <meta
+      name="description"
+      content="Le mat du couloir, c’est un échec et mat sur la dernière rangée : le roi est enfermé derrière ses propres pions. Un exemple à regarder sur l’échiquier et le bon réflexe à garder."
+    />
+    <link rel="canonical" href="https://eperon.io/mots/mat-du-couloir/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/mots/mat-du-couloir/" />
+    <meta property="og:title" content="Le mat du couloir, en clair" />
+    <meta property="og:description" content="Le mat du couloir, c’est un échec et mat sur la dernière rangée : le roi est enfermé derrière ses propres pions." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/mots/mot.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le mot en une phrase, et le plateau de l'exemple (mot.js le construit avec donnees.js). -->
+      <section class="mot-haut">
+        <div>
+          <p class="surtitre"><a class="mot-fil" href="/mots/">Les mots des échecs en clair</a></p>
+          <h1>Le mat du couloir, en clair.</h1>
+          <h2 class="mot-etiquette">En une phrase</h2>
+          <p class="mot-definition">Le mat du couloir, c’est un échec et mat sur la dernière rangée : le roi est enfermé derrière ses propres pions.</p>
+        </div>
+        <div class="mot-plateau-place">
+          <div id="mot-plateau"></div>
+          <noscript>
+            <p class="mot-secours">L’exemple : Le roi noir est bien au chaud derrière ses trois pions. Mais il n’a aucune case de sortie, et personne ne garde sa dernière rangée. La suite : 1. Te8#.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="mot-suite">
+        <div class="mot-signes">
+          <h2>Comment le reconnaître</h2>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Un roi derrière trois pions</h3><p>Les pions du roque n’ont pas bougé : le roi n’a aucune case devant lui.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Une dernière rangée sans gardien</h3><p>Aucune tour, aucune dame n’est restée pour la protéger.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Une colonne ouverte</h3><p>Une tour ou une dame peut descendre jusqu’au bout sans rien rencontrer.</p></div></li>
+          </ol>
+        </div>
+        <div class="mot-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Donne de l’air à ton roi.</h2>
+          <p>Quand la position est calme, avance d’une case un pion devant ton roi, comme le pion h3 des Blancs dans l’exemple. Ton roi a une sortie, et tes tours sont libres de partir.</p>
+        </div>
+      </section>
+
+      <section class="mot-autres">
+        <h2>Deux autres mots</h2>
+        <ul class="mot-cartes">
+          <li><a class="mot-carte" href="/mots/colonne-ouverte/"><h3 class="mot-carte-nom">La colonne ouverte</h3><span class="mot-carte-phrase">Une colonne ouverte est une colonne sans aucun pion. C’est une route libre pour tes tours, jusqu’au camp adverse.</span></a></li>
+          <li><a class="mot-carte" href="/mots/clouage/"><h3 class="mot-carte-nom">Le clouage</h3><span class="mot-carte-phrase">Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée juste derrière elle.</span></a></li>
+        </ul>
+        <p class="mot-tous"><a class="bouton bouton-lien" href="/mots/">Tous les mots</a></p>
+      </section>
+
+      <section class="mot-encart">
+        <div class="mot-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/mots/mat-du-couloir/donnees.js"></script>
+    <script src="/mots/mot.js"></script>
+  </body>
+</html>

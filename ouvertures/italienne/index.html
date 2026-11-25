@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>L’Italienne aux échecs : le plan, pas la théorie — Éperon</title>
+    <meta
+      name="description"
+      content="L’ouverture italienne expliquée simplement : les premiers coups un par un, le plan des Blancs, le plan des Noirs et le bon réflexe à garder. Pour les joueurs de club."
+    />
+    <link rel="canonical" href="https://eperon.io/ouvertures/italienne/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/ouvertures/italienne/" />
+    <meta property="og:title" content="L’Italienne : le plan, pas la théorie" />
+    <meta property="og:description" content="Les premiers coups de l’Italienne un par un, avec la raison de chacun. Puis le plan des Blancs, le plan des Noirs et le bon réflexe." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/ouvertures/ouverture.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
+      <section class="ouv-haut">
+        <div>
+          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <h1>L’Italienne : le plan, pas la théorie.</h1>
+          <p class="hero-phrase">Tu joues 1. e4 e5 2. Cf3 Cc6 3. Fc4, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="ouv-cote">Tu as les Blancs. Cette page te parle de ton côté.</p>
+        </div>
+        <div class="ouv-plateau-place">
+          <div id="ouverture-plateau"></div>
+          <noscript>
+            <p class="ouv-secours">La suite, coup par coup : 1. e4 e5 2. Cf3 Cc6 3. Fc4 Fc5 4. c3 Cf6 5. d3 d6 6. O-O O-O 7. Te1 a6.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="ouv-plans">
+        <div class="ouv-plan">
+          <h2>Le plan des Blancs</h2>
+          <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Sors tout ton monde</h3><p>Ton roi est roqué, ta tour est en e1. Maintenant, ton cavalier de b1 part en voyage : d2, f1, puis g3, du côté du roi noir.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Prépare la poussée d4</h3><p>Ton pion c3 est là pour ça. Quand tes pièces sont sorties, tu pousses d4 et tu prends le centre.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Garde ton fou italien</h3><p>C’est une de tes meilleures pièces. Si on vient l’attaquer, recule-le en b3 : de là, il regarde toujours vers f7.</p></div></li>
+          </ol>
+        </div>
+        <div class="ouv-plan">
+          <h2>Le plan des Noirs</h2>
+          <p class="ouv-plan-intro">Ce que les Noirs veulent faire, pour que tu le voies venir.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils mettent leur fou à l’abri</h3><p>Leur pion a6 a préparé la case a7. Leur fou y recule : de là, il reste braqué sur le centre et sur ton pion f2.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils proposent l’échange des fous</h3><p>Leur deuxième fou sort en e6, en face de ton fou italien. À toi de choisir : tu prends, ou tu recules ton fou en b3 et tu les laisses décider.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils préparent la poussée d5</h3><p>C’est leur coup de liberté. Quand leurs pièces soutiennent bien e5, ils poussent d5 et leur jeu s’ouvre.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ouv-reflexe">
+        <div class="ouv-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Les pièces d’abord, le centre ensuite.</h2>
+          <p>Avant chaque coup, demande-toi : quelle pièce n’a pas encore joué ? Fais-la jouer. Quand tout ton monde est sorti, pousse d4 et prends le centre.</p>
+        </div>
+      </section>
+
+      <nav class="ouv-autres" aria-label="Les autres ouvertures">
+        <p>Une autre ouverture ?</p>
+        <ul>
+          <li><a href="/ouvertures/espagnole/">L’Espagnole</a></li>
+          <li><a href="/ouvertures/systeme-de-londres/">Le Système de Londres</a></li>
+          <li><a href="/ouvertures/">Toutes les ouvertures</a></li>
+        </ul>
+      </nav>
+
+      <section class="ouv-encart">
+        <div class="ouv-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/ouvertures/italienne/donnees.js"></script>
+    <script src="/ouvertures/ouverture.js"></script>
+  </body>
+</html>

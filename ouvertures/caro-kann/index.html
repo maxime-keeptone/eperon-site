@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>La Caro-Kann aux échecs : le plan, pas la théorie — Éperon</title>
+    <meta
+      name="description"
+      content="La défense Caro-Kann expliquée simplement : les premiers coups un par un, le plan des Blancs, le plan des Noirs et le bon réflexe à garder. Pour les joueurs de club."
+    />
+    <link rel="canonical" href="https://eperon.io/ouvertures/caro-kann/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/ouvertures/caro-kann/" />
+    <meta property="og:title" content="La Caro-Kann : le plan, pas la théorie" />
+    <meta property="og:description" content="Les premiers coups de la Caro-Kann un par un, avec la raison de chacun. Puis le plan des Blancs, le plan des Noirs et le bon réflexe." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/ouvertures/ouverture.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
+      <section class="ouv-haut">
+        <div>
+          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <h1>La Caro-Kann : le plan, pas la théorie.</h1>
+          <p class="hero-phrase">Avec les Noirs, tu joues 1. e4 c6 2. d4 d5, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="ouv-ligne">Ici, on regarde la Caro-Kann quand tu prends au centre et que ton fou sort en f5. C’est une des façons de la jouer.</p>
+          <p class="ouv-cote">Tu as les Noirs. Cette page te parle de ton côté, et le plateau est tourné vers toi.</p>
+        </div>
+        <div class="ouv-plateau-place">
+          <div id="ouverture-plateau"></div>
+          <noscript>
+            <p class="ouv-secours">La suite, coup par coup : 1. e4 c6 2. d4 d5 3. Cc3 dxe4 4. Cxe4 Ff5 5. Cg3 Fg6 6. Cf3 Cd7 7. Fd3 Fxd3 8. Dxd3 e6.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="ouv-plans">
+        <div class="ouv-plan">
+          <h2>Le plan des Noirs</h2>
+          <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Finis de sortir tes pièces</h3><p>Ton cavalier de g8 va en f6, ton fou en e7, puis tu roques. Ton roi est à l’abri derrière des pions bien en place.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Garde un œil sur e5</h3><p>Ton cavalier d7 surveille déjà cette case. Ta dame peut venir en c7 pour la surveiller avec lui.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Prépare la poussée c5</h3><p>C’est ton coup de liberté. Quand ton roi est à l’abri, tu pousses c5 : ton pion attaque d4 et ton jeu s’ouvre.</p></div></li>
+          </ol>
+        </div>
+        <div class="ouv-plan">
+          <h2>Le plan des Blancs</h2>
+          <p class="ouv-plan-intro">Ce que les Blancs veulent faire, pour que tu le voies venir.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils profitent de leur pion d4</h3><p>Il est plus avancé que tes pions c6 et e6 : il leur donne plus de place. Leurs pièces s’installent autour de lui.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils roquent et placent leurs tours</h3><p>Le roque d’abord, puis une tour en e1. Sur la colonne e, aucun de leurs pions ne la gêne.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils rêvent de la case e5</h3><p>Leur pion d4 soutient cette case, et un cavalier aimerait s’y poser. Ton cavalier d7 la surveille.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ouv-reflexe">
+        <div class="ouv-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Le fou d’abord, e6 ensuite.</h2>
+          <p>Dans la Caro-Kann, ton fou de c8 sort avant que tu pousses e6. Avant de jouer e6, demande-toi : mon fou est-il déjà dehors ? Si oui, vas-y : tes pions peuvent se mettre en place derrière lui.</p>
+        </div>
+      </section>
+
+      <nav class="ouv-autres" aria-label="Les autres ouvertures">
+        <p>Une autre ouverture ?</p>
+        <ul>
+          <li><a href="/ouvertures/francaise/">La Française</a></li>
+          <li><a href="/ouvertures/scandinave/">La Scandinave</a></li>
+          <li><a href="/ouvertures/">Toutes les ouvertures</a></li>
+        </ul>
+      </nav>
+
+      <section class="ouv-encart">
+        <div class="ouv-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/ouvertures/caro-kann/donnees.js"></script>
+    <script src="/ouvertures/ouverture.js"></script>
+  </body>
+</html>

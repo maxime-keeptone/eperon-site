@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>L’Est-indienne aux échecs : le plan, pas la théorie — Éperon</title>
+    <meta
+      name="description"
+      content="La défense est-indienne expliquée simplement, du côté des Noirs : les premiers coups un par un, le plan des Noirs, le plan des Blancs et le bon réflexe à garder. Pour les joueurs de club."
+    />
+    <link rel="canonical" href="https://eperon.io/ouvertures/est-indienne/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/ouvertures/est-indienne/" />
+    <meta property="og:title" content="L’Est-indienne : le plan, pas la théorie" />
+    <meta property="og:description" content="Les premiers coups de l’Est-indienne un par un, du côté des Noirs, avec la raison de chacun. Puis le plan des Noirs, le plan des Blancs et le bon réflexe." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/ouvertures/ouverture.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
+      <section class="ouv-haut">
+        <div>
+          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <h1>L’Est-indienne : le plan, pas la théorie.</h1>
+          <p class="hero-phrase">Sur 1. d4, tu réponds Cf6, puis g6, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="ouv-cote">Tu as les Noirs. Cette page te parle de ton côté, et le plateau est tourné vers toi.</p>
+        </div>
+        <div class="ouv-plateau-place">
+          <div id="ouverture-plateau"></div>
+          <noscript>
+            <p class="ouv-secours">La suite, coup par coup : 1. d4 Cf6 2. c4 g6 3. Cc3 Fg7 4. e4 d6 5. Cf3 O-O 6. Fe2 e5 7. O-O Cc6 8. d5 Ce7.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="ouv-plans">
+        <div class="ouv-plan">
+          <h2>Le plan des Noirs</h2>
+          <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Libère ton pion f</h3><p>Recule ton cavalier de f6 en d7 : ton pion f a la voie libre. Pousse-le en f5, ton attaque commence.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Avance du côté du roi</h3><p>Le centre est fermé, tu peux avancer tes pions. D’abord f4, puis g5 : ils marchent vers le roi blanc.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Amène tes cavaliers</h3><p>L’un revient en f6. L’autre passe en g6 quand ton pion g a avancé. Tout ton monde regarde le roi blanc.</p></div></li>
+          </ol>
+        </div>
+        <div class="ouv-plan">
+          <h2>Le plan des Blancs</h2>
+          <p class="ouv-plan-intro">Ce que les Blancs veulent faire, pour que tu le voies venir.</p>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils jouent du côté de la dame</h3><p>Leur pion d5 leur donne de la place de ce côté. Ils préparent la poussée c5 : elle ouvre le jeu pour eux.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils déplacent leur cavalier f3</h3><p>Il recule en e1, puis monte en d3. De là, il soutient leur poussée c5.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils gardent leur porte fermée</h3><p>Tu viens vers leur roi. Leur coup f3 soutient le pion e4 et tient leur roque solide.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="ouv-reflexe">
+        <div class="ouv-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Centre fermé ? Chacun attaque de son côté.</h2>
+          <p>Quand les pions du centre sont bloqués, la partie se joue sur les côtés. Toi, tu vas vers le roi, avec f5. Les Blancs vont vers la dame, avec c5. Avant chaque coup, demande-toi : est-ce qu’il fait avancer mon attaque ?</p>
+        </div>
+      </section>
+
+      <nav class="ouv-autres" aria-label="Les autres ouvertures">
+        <p>Une autre ouverture ?</p>
+        <ul>
+          <li><a href="/ouvertures/sicilienne/">La Sicilienne</a></li>
+          <li><a href="/ouvertures/scandinave/">La Scandinave</a></li>
+          <li><a href="/ouvertures/">Toutes les ouvertures</a></li>
+        </ul>
+      </nav>
+
+      <section class="ouv-encart">
+        <div class="ouv-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/ouvertures/est-indienne/donnees.js"></script>
+    <script src="/ouvertures/ouverture.js"></script>
+  </body>
+</html>

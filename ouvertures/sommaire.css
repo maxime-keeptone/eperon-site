@@ -1,0 +1,108 @@
+/* Le sommaire des ouvertures (/ouvertures/) : une carte par ouverture. Mêmes couleurs que l'accueil (variables de /style.css). */
+
+.som-haut {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 8px var(--marge) 0;
+}
+.som-haut h1 {
+  max-width: 14em;
+  font-size: 34px;
+}
+.som-haut .hero-phrase {
+  margin-top: 12px;
+}
+
+/* ---- Les cartes : l'une sous l'autre au téléphone, en colonnes dès qu'il y a la place ---- */
+.som-liste {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 32px var(--marge) 0;
+}
+.som-cartes {
+  display: grid;
+  gap: 12px;
+}
+.som-cartes > li {
+  display: flex;
+}
+/* Toute la carte se touche. */
+.som-carte {
+  position: relative;
+  flex: 1 1 auto;
+  display: block;
+  padding: 18px 44px 18px 20px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  transition: background-color 120ms var(--ease), border-color 120ms var(--ease);
+}
+.som-carte:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+.som-carte:focus-visible {
+  border-radius: var(--r-lg);
+}
+/* Le petit chevron : « ça s'ouvre ». */
+.som-carte::after {
+  content: '›';
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  color: var(--text-3);
+  font-size: 24px;
+  line-height: 1;
+}
+.som-carte h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+.som-coups {
+  margin-top: 6px;
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.som-pour {
+  margin-top: 8px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .som-cartes {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+/* ---- Ordinateur ---- */
+@media (min-width: 900px) {
+  .som-haut {
+    padding-top: 40px;
+  }
+  .som-haut h1 {
+    font-size: 60px;
+  }
+  .som-haut .hero-phrase {
+    margin-top: 24px;
+  }
+  .som-liste {
+    padding-top: 56px;
+  }
+  .som-cartes {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .som-carte {
+    padding: 24px 48px 24px 24px;
+  }
+  .som-carte::after {
+    top: 22px;
+    right: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .som-carte {
+    transition: none;
+  }
+}

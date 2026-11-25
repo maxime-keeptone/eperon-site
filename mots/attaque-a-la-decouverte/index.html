@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#1d1814" />
+    <title>L’attaque à la découverte aux échecs, en clair — Éperon</title>
+    <meta
+      name="description"
+      content="Tu déplaces une pièce, et celle qui était cachée derrière se met à attaquer. Deux menaces partent en un seul coup. Un exemple à regarder sur l’échiquier et le bon réflexe à garder."
+    />
+    <link rel="canonical" href="https://eperon.io/mots/attaque-a-la-decouverte/" />
+    <!-- Ce que voient Google et les messageries quand on colle le lien. -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Éperon" />
+    <meta property="og:url" content="https://eperon.io/mots/attaque-a-la-decouverte/" />
+    <meta property="og:title" content="L’attaque à la découverte, en clair" />
+    <meta property="og:description" content="Tu déplaces une pièce, et celle qui était cachée derrière se met à attaquer. Deux menaces partent en un seul coup." />
+    <meta property="og:image" content="https://eperon.io/images/partage.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Le logo d’Éperon et la phrase « Un coach d’échecs rien que pour toi. »" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/icone-180.png" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/mots/mot.css" />
+    <link rel="stylesheet" href="/liens.css" />
+  </head>
+  <body>
+    <header class="barre">
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+    </header>
+
+    <main>
+      <!-- Le haut : le mot en une phrase, et le plateau de l'exemple (mot.js le construit avec donnees.js). -->
+      <section class="mot-haut">
+        <div>
+          <p class="surtitre"><a class="mot-fil" href="/mots/">Les mots des échecs en clair</a></p>
+          <h1>L’attaque à la découverte, en clair.</h1>
+          <h2 class="mot-etiquette">En une phrase</h2>
+          <p class="mot-definition">Tu déplaces une pièce, et celle qui était cachée derrière se met à attaquer. Deux menaces partent en un seul coup.</p>
+        </div>
+        <div class="mot-plateau-place">
+          <div id="mot-plateau"></div>
+          <noscript>
+            <p class="mot-secours">L’exemple : Ta tour regarde vers la dame noire, mais ton fou est au milieu. S’il s’en va, la colonne s’ouvre. La suite : 1. Fxh7+ Rxh7 2. Txe7.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="mot-suite">
+        <div class="mot-signes">
+          <h2>Comment la reconnaître</h2>
+          <ol class="groupe etapes">
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Deux de tes pièces sur une même ligne</h3><p>Derrière, un fou, une tour ou une dame. Devant, une autre de tes pièces, qui lui cache la vue.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Une cible au bout de la ligne</h3><p>Une pièce adverse précieuse ou sans défense, sur cette même ligne.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Un coup fort pour la pièce de devant</h3><p>Un échec ou une prise : ton adversaire doit y répondre, et l’autre menace passe.</p></div></li>
+          </ol>
+        </div>
+        <div class="mot-reflexe-corps">
+          <p class="surtitre">Le bon réflexe</p>
+          <h2>Regarde ce que voit la pièce de derrière.</h2>
+          <p>Quand deux de tes pièces sont sur la même ligne, demande-toi : si celle de devant s’en va, qu’attaque celle de derrière ? Puis donne à celle de devant le coup le plus fort.</p>
+        </div>
+      </section>
+
+      <section class="mot-autres">
+        <h2>Deux autres mots</h2>
+        <ul class="mot-cartes">
+          <li><a class="mot-carte" href="/mots/fourchette/"><h3 class="mot-carte-nom">La fourchette</h3><span class="mot-carte-phrase">Une fourchette, c’est une seule pièce qui en attaque deux à la fois. Souvent, ton adversaire ne peut en sauver qu’une.</span></a></li>
+          <li><a class="mot-carte" href="/mots/enfilade/"><h3 class="mot-carte-nom">L’enfilade</h3><span class="mot-carte-phrase">Une enfilade, c’est une attaque sur deux pièces alignées : celle de devant, la plus précieuse, doit s’écarter, et tu prends celle de derrière.</span></a></li>
+        </ul>
+        <p class="mot-tous"><a class="bouton bouton-lien" href="/mots/">Tous les mots</a></p>
+      </section>
+
+      <section class="mot-encart">
+        <div class="mot-encart-corps">
+          <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
+          <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
+          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pied">
+      <div>
+        <img class="marque-logo petit" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <nav class="apprendre" aria-labelledby="apprendre-titre">
+          <p class="apprendre-titre" id="apprendre-titre">Apprendre</p>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </nav>
+        <p>Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p>Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+      </div>
+      <a class="langue" href="#" aria-label="Haut de la page">↑</a>
+    </footer>
+
+    <script src="/mots/attaque-a-la-decouverte/donnees.js"></script>
+    <script src="/mots/mot.js"></script>
+  </body>
+</html>
