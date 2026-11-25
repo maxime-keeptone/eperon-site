@@ -2,161 +2,197 @@
 <html lang="fr" data-code="non" data-avis="non" data-discussion="non" data-contact="non" data-liste="non" data-formulaire="non" data-attente="non" data-appli="non">
   <head>
     <meta charset="utf-8" />
-    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs.
-         Le jour où un réglage (reglages.js) donne une adresse d'envoi, l'ajouter ici dans connect-src. -->
+    <!-- Protection : la page ne charge que ses propres fichiers et n'envoie rien ailleurs. -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
     <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#1d1814" />
-    <title>Éperon — le coach d’échecs qui regarde tes parties</title>
+    <title>Éperon — un coach d’échecs rien que pour toi</title>
     <meta
       name="description"
-      content="Donne ton pseudo Chess.com : le coach trouve les erreurs qui reviennent dans tes parties, te fait travailler dessus et répond à tes questions sur l’échiquier."
+      content="Éperon est une IA d’échecs qui te suit de partie en partie : elle lit tes parties Chess.com, met des mots sur ce qui te coûte des points et t’explique les positions simplement. Gratuit, sur ton ordinateur."
     />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="images/icone-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="images/icone-180.png" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="echiquier.css" />
   </head>
   <body>
     <header class="barre">
-      <a class="marque" href="./" aria-label="Éperon"><span data-nom>Éperon</span></a>
-      <button type="button" class="langue" id="bouton-langue" data-t="autre-langue" lang="en">English</button>
+      <a class="marque" href="./" aria-label="Éperon"><img class="marque-logo" src="images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <nav class="barre-liens" aria-label="Dans la page">
+        <a href="#histoire" class="barre-lien" data-t="nav-histoire">L’histoire</a>
+        <button type="button" class="langue" id="bouton-langue" data-t="autre-langue" lang="en">English</button>
+      </nav>
     </header>
 
     <main>
-      <!-- Le premier écran -->
+      <!-- Le premier écran : ce que c'est, et l'échiquier. Au téléphone, style.css range : titre, phrase, échiquier, puis le bouton, la pastille et le lien. -->
       <section class="hero">
         <div class="hero-texte">
-          <p class="pastille si-code-non"><span class="point" aria-hidden="true"></span><span data-t="hero-pastille">Téléchargement bientôt ouvert</span></p>
-          <h1 data-t="hero-titre">Le coach qui regarde tes parties.</h1>
-          <p class="hero-phrase" data-t="hero-phrase">
-            Donne ton pseudo Chess.com. Il trouve les erreurs qui reviennent, te fait travailler dessus, et répond à tes
-            questions sur l’échiquier.
-          </p>
+          <p class="hero-etat"><span class="pastille si-code-non"><span class="point" aria-hidden="true"></span><span data-t="hero-pastille">Première version · bientôt à télécharger</span></span> <span class="hero-gratuit" data-t="hero-gratuit">Gratuit, sur ton ordinateur.</span></p>
+          <h1 data-t="hero-titre">Un coach d’échecs rien que pour toi.</h1>
+          <p class="hero-phrase" data-t="hero-phrase">Éperon lit tes parties, met des mots sur ce qui te coûte des points, et t’explique les positions simplement.</p>
           <div class="hero-boutons">
             <a class="bouton bouton-principal si-code-oui" data-lien="code" href="#installer" rel="noopener" data-t="hero-telecharger">Télécharger gratuitement</a>
-            <a class="bouton bouton-principal si-code-non" href="#installer" data-t="hero-voir">L’installer chez toi</a>
-            <a class="bouton bouton-lien si-attente-oui" href="#liste" data-t="hero-liste">Être prévenu de la version en ligne</a>
+            <a class="bouton bouton-principal si-code-non si-discussion-oui" data-lien="discussion" href="#ensemble" target="_blank" rel="noopener" data-t="avis-discuter">Rejoindre le salon Discord</a>
+            <a class="bouton bouton-lien" href="#installer" data-t="hero-voir">Comment l’installer chez toi</a>
           </div>
         </div>
 
-        <figure class="hero-image">
-          <div class="ecran">
-            <img src="images/revue-moment-cle.png" width="780" height="994" alt="" data-t-alt="image-alt-revue" />
+        <!-- L'échiquier vivant : echiquier.js le construit ici, avec les exemples de exemples.js. Sans programme, l'image d'avant reste. -->
+        <!-- Pas d'arrivée en douceur ici : l'échiquier est en place dès le chargement, on peut y jouer tout de suite. -->
+        <div class="hero-image">
+          <div class="echiquier-vivant" id="echiquier-vivant"></div>
+          <p class="note origine" data-t="ev-origine">De vraies réponses du coach d’Éperon, branché sur Claude. Choisies et relues : chaque coup est vérifié par le moteur.</p>
+          <noscript>
+            <div class="fenetre">
+              <img src="images/revue-moment-cle.png" width="780" height="994" alt="L’écran de revue d’une partie : un échiquier, un moment clé, et la consigne « À toi : trouve mieux que exd5 »." />
+            </div>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="moment" id="progres">
+        <div class="moment-texte apparait">
+          <p class="surtitre" data-t="m2-sur">Tes progrès</p>
+          <h2 data-t="m2-titre">Des mots sur ce que tu sentais déjà.</h2>
+          <p data-t="m2-p">L’écran Progrès te dit vite ce qui te coûte le plus de points : l’erreur qui revient le plus, ou tes défaites au temps quand elles pèsent lourd. Compté sur tes vraies parties, pas sur une moyenne.</p>
+        </div>
+        <figure class="vitrine apparait">
+          <div class="fenetre fondu recadre cadre-progres">
+            <picture>
+              <source media="(max-width: 899px)" srcset="images/progres-telephone.png" />
+              <img src="images/progres-ordinateur.png" width="1920" height="1200" alt="" data-t-alt="alt-progres" loading="lazy" />
+            </picture>
           </div>
-          <figcaption data-t="legende">Image de démonstration, joueur inventé.</figcaption>
         </figure>
       </section>
 
-      <!-- Ce qu'il fait -->
-      <section class="bloc" id="ce-qu-il-fait">
-        <div class="bloc-tete">
-          <h2 data-t="fait-titre">Ce qu’il fait</h2>
-          <figure class="ecran-seance">
-            <div class="ecran fondu">
-              <img src="images/seance-du-jour.png" width="780" height="352" alt="" data-t-alt="image-alt-seance" loading="lazy" />
-            </div>
-            <figcaption data-t="legende">Image de démonstration, joueur inventé.</figcaption>
-          </figure>
+      <!-- Le coach : un texte seul. On l'essaie pour de vrai sur l'échiquier du haut de la page. -->
+      <section class="moment seul" id="coach">
+        <div class="moment-texte apparait">
+          <p class="surtitre" data-t="m1-sur">Le coach</p>
+          <h2 data-t="m1-titre">Comprendre le jeu, pas réciter la théorie.</h2>
+          <p data-t="m1-p">Devant une position compliquée, le coach te l’explique avec des mots simples : ce qui est déséquilibré, et quel plan suivre. Tu lui poses ta question par écrit ou à voix haute, il répond en quelques secondes. Les lignes de coups restent là pour qui les veut.</p>
+          <p class="appui" data-t="m1-appui">Beaucoup d’outils calculent. Éperon explique.</p>
+          <p><a class="bouton bouton-lien" href="#echiquier-vivant" data-t="m1-essaie">Essaie-le en haut de cette page.</a></p>
         </div>
-        <ol class="groupe etapes">
-          <li><span class="numero" aria-hidden="true">1</span><div><h3 data-t="fait-1-t">Il lit tes parties</h3><p data-t="fait-1-p">Il va les chercher tout seul et les analyse coup par coup.</p></div></li>
-          <li><span class="numero" aria-hidden="true">2</span><div><h3 data-t="fait-2-t">Il trouve ce qui revient</h3><p data-t="fait-2-p">Pas une liste de fautes : l’erreur que tu refais, partie après partie.</p></div></li>
-          <li><span class="numero" aria-hidden="true">3</span><div><h3 data-t="fait-3-t">Il te fait travailler dessus</h3><p data-t="fait-3-p">Chaque jour, une séance courte, avec des exercices tirés de tes propres parties.</p></div></li>
-          <li><span class="numero" aria-hidden="true">4</span><div><h3 data-t="fait-4-t">Il répond à tes questions</h3><p data-t="fait-4-p">Sur l’échiquier, à n’importe quel coup : « je joue quoi ? », « c’était une erreur ? ».</p></div></li>
+      </section>
+
+      <section class="moment" id="match">
+        <div class="moment-texte apparait">
+          <p class="surtitre" data-t="m3-sur">Préparer un match</p>
+          <h2 data-t="m3-titre">Prépare-toi contre un joueur.</h2>
+          <p data-t="m3-p">Donne son pseudo : Éperon regarde ses parties et te montre ses habitudes. Pratique avant un match, ou pour jeter un œil aux parties d’un élève.</p>
+        </div>
+        <figure class="vitrine apparait">
+          <div class="fenetre fondu recadre cadre-match">
+            <picture>
+              <source media="(max-width: 899px)" srcset="images/match-telephone.png" />
+              <img src="images/match-ordinateur.png" width="1920" height="1200" alt="" data-t-alt="alt-match" loading="lazy" />
+            </picture>
+          </div>
+        </figure>
+      </section>
+
+      <!-- Comment ça marche -->
+      <section class="bloc" id="comment">
+        <div class="bloc-tete apparait">
+          <h2 data-t="cm-titre">Comment ça marche</h2>
+          <p class="bloc-phrase" data-t="cm-phrase">Les meilleurs programmes qui existent, réunis dans un seul outil.</p>
+        </div>
+        <ol class="groupe etapes apparait">
+          <li><span class="numero" aria-hidden="true">1</span><div><h3 data-t="cm-1-t">Tes parties</h3><p data-t="cm-1-p">Tu donnes ton pseudo Chess.com ou Lichess. Éperon va chercher tes parties tout seul.</p></div></li>
+          <li><span class="numero" aria-hidden="true">2</span><div><h3 data-t="cm-2-t">Le calcul</h3><p data-t="cm-2-p">Stockfish, l’un des moteurs d’échecs les plus forts du monde, analyse chaque coup. Sur ton ordinateur, gratuitement.</p></div></li>
+          <li><span class="numero" aria-hidden="true">3</span><div><h3 data-t="cm-3-t">Le harnais</h3><p data-t="cm-3-p">Éperon ne fournit pas l’IA : c’est un harnais d’échecs. Il donne à l’IA de ton choix le calcul du moteur et tes parties, et relit chaque réponse avant de te la montrer.</p></div></li>
+          <li><span class="numero" aria-hidden="true">4</span><div><h3 data-t="cm-4-t">Ton travail</h3><p data-t="cm-4-p">Chaque jour, une séance courte : des exercices tirés de tes propres parties, et des problèmes classiques.</p></div></li>
         </ol>
+      </section>
+
+      <!-- L'histoire, à la première personne -->
+      <section class="histoire" id="histoire">
+        <div class="histoire-corps apparait">
+          <p class="surtitre" data-t="hist-sur">L’histoire · pourquoi j’ai fait Éperon</p>
+          <h2 data-t="hist-titre">Je voulais un coach perso, qui me suive de partie en partie.</h2>
+          <p data-t="hist-1">Je joue beaucoup aux échecs : en ligne, en club, et j’ai pris des cours. Les outils pour apprendre, on s’y perd. Trop compliqués, ou chers pour ce qu’ils donnent.</p>
+          <p data-t="hist-2">Je voulais un bureau à moi pour apprendre. Quelque chose de personnalisé, comme un prof particulier, ou comme un soutien à côté d’un vrai prof. Et un outil joli, qui aide vraiment à progresser.</p>
+          <p data-t="hist-3">Je travaille tous les jours avec l’IA. Alors j’ai réuni les meilleurs programmes qui existent pour essayer d’en faire une bête de course. Je ne suis pas développeur : les grandes décisions sont les miennes, le code est écrit avec Claude, une IA.</p>
+          <p data-t="hist-4">J’ai un niveau amateur aux échecs, et c’est la toute première version : il manque des choses.</p>
+          <p data-t="hist-5">Éperon se construit avec les gens, pour les gens. Joueurs, profs : toutes les remarques constructives et tous les coups de main sont bienvenus.</p>
+          <p class="signature" data-t="hist-signe">Maxime</p>
+        </div>
+      </section>
+
+      <!-- Venir en parler -->
+      <section class="bloc" id="ensemble">
+        <div class="bloc-tete apparait">
+          <h2 data-t="avis-titre">On le construit ensemble</h2>
+          <p class="bloc-phrase" data-t="avis-phrase">Une idée, un défaut, un coup de main ? Viens en parler.</p>
+        </div>
+        <div class="apparait">
+          <p class="bloc-phrase" data-t="avis-modele">Chez toi, Éperon est gratuit. Plus tard, une version en ligne, sans rien installer, sera payante : c’est elle qui fera vivre le projet.</p>
+          <div class="suite si-contact-oui">
+            <a class="bouton bouton-principal si-discussion-oui" data-lien="discussion" href="#ensemble" target="_blank" rel="noopener" data-t="avis-discuter">Rejoindre le salon Discord</a>
+            <a class="bouton bouton-second si-avis-oui" data-lien="avis" href="#ensemble" rel="noopener" data-t="avis-bouton">Signaler un bug, proposer une idée</a>
+          </div>
+          <p class="bientot si-contact-non" data-t="avis-bientot">Le salon de discussion ouvre bientôt. Cette page donnera le lien ce jour-là.</p>
+        </div>
       </section>
 
       <!-- L'installer chez soi -->
       <section class="bloc" id="installer">
-        <div class="bloc-tete">
+        <div class="bloc-tete apparait">
           <h2 data-t="inst-titre">L’installer chez toi</h2>
-          <p class="bloc-phrase" data-t="inst-phrase">Éperon tourne sur ton ordinateur. Tes parties restent chez toi.</p>
+          <p class="bloc-phrase" data-t="inst-phrase">Éperon tourne sur ton ordinateur. Sans clé d’IA, rien ne sort de chez toi.</p>
         </div>
-        <div>
+        <div class="apparait">
           <div class="groupe plis">
-            <details open>
-              <summary><h3 data-t="inst-2-t">Aujourd’hui, pour les bricoleurs</h3></summary>
-              <p data-t="inst-2-p">Il faut installer Docker, un outil de développeur, et taper deux commandes. L’installateur en un clic n’existe pas encore. Pas encore essayé sur Windows.</p>
+            <details>
+              <summary><h3 data-t="inst-2-t">Où on en est aujourd’hui</h3></summary>
+              <p data-t="inst-2-p">Rien n’est encore à télécharger. Une appli à double-cliquer est en préparation. Une installation pour bricoleurs, avec Docker (un outil de développeur), est écrite mais pas encore essayée de bout en bout. Rien n’a encore tourné sur Windows.</p>
             </details>
             <details>
-              <summary><h3 data-t="inst-1-t">Gratuit, et le code est ouvert</h3></summary>
-              <p data-t="inst-1-p">Tu peux lire le code, le modifier, le faire tourner comme tu veux.</p>
+              <summary><h3 data-t="inst-1-t">Gratuit, et le code sera ouvert</h3></summary>
+              <p data-t="inst-1-p">Le code sera publié : tu pourras le lire et le faire tourner chez toi. La licence n’est pas encore choisie.</p>
             </details>
             <details>
               <summary><h3 data-t="inst-3-t">Le vrai coach demande ta clé</h3></summary>
-              <p data-t="inst-3-p">Sans clé, un coach simple répond, gratuitement. Avec ta propre clé (Claude, un service compatible, ou un modèle qui tourne chez toi), c’est le vrai coach. Tes questions partent alors chez ce fournisseur, et c’est lui que tu paies.</p>
+              <p data-t="inst-3-p">Sans clé, un coach simple répond, gratuitement. Avec ta propre clé Claude, c’est le vrai coach : tes questions et les positions dont tu parles partent alors chez ce fournisseur, et c’est lui que tu paies. Le branchement d’une autre IA est construit mais pas encore essayé.</p>
             </details>
             <details>
-              <summary><h3 data-t="inst-4-t">Sur ton téléphone aussi</h3></summary>
-              <p data-t="inst-4-p">À la maison, sur le même wifi que l’ordinateur, tant qu’il reste allumé.</p>
+              <summary><h3 data-t="inst-5-t">Bientôt : ton vrai échiquier</h3></summary>
+              <p data-t="inst-5-p">Jouer sur un échiquier connecté, les pièces en main. Le branchement du DGT Pegasus est écrit ; on l’essaie sur un vrai plateau avant de te le promettre.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="inst-4-t">Sur ton téléphone, à la maison</h3></summary>
+              <p data-t="inst-4-p">Prévu avec l’installation pour bricoleurs : sur le même wifi que l’ordinateur, tant qu’il reste allumé. Pas encore essayé.</p>
             </details>
           </div>
           <div class="suite si-code-oui">
             <a class="bouton bouton-principal" data-lien="code" href="#installer" rel="noopener" data-t="inst-bouton">Télécharger gratuitement</a>
             <p class="note" data-t="inst-bouton-note">Le lien ouvre le code et son guide d’installation.</p>
           </div>
-          <p class="bientot si-code-non" data-t="inst-bientot">Le code sera publié bientôt. Cette page donnera le lien ce jour-là.</p>
-        </div>
-      </section>
-
-      <!-- La version en ligne : liste d'attente -->
-      <section class="bloc" id="liste">
-        <div class="bloc-tete">
-          <h2 data-t="liste-titre">La version en ligne</h2>
-          <p class="bloc-phrase" data-t="liste-phrase">Plus tard : un compte en ligne, sans rien installer. Ce sera payant. Le prix n’est pas encore fixé.</p>
-        </div>
-        <div>
-          <a class="bouton bouton-second si-appli-oui" data-lien="appli" href="#liste" rel="noopener" data-t="liste-essayer">Ouvrir Éperon en ligne</a>
-          <div class="suite haut si-formulaire-oui">
-            <a class="bouton bouton-principal" data-lien="formulaire" href="#liste" rel="noopener" data-t="liste-ouvrir">Laisser mon adresse</a>
-          </div>
-          <p class="note si-formulaire-oui" data-t="liste-ouvrir-note">Tu confirmes ton adresse par un message. Elle sert seulement à t’écrire le jour de l’ouverture, et chaque message permet de se désinscrire.</p>
-          <div class="groupe carte-liste si-liste-oui">
-            <form id="liste-formulaire" novalidate>
-              <label for="liste-courriel" data-t="liste-label">Ton adresse de courriel</label>
-              <div class="champ-ligne">
-                <input id="liste-courriel" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="toi@exemple.fr" data-t-exemple="liste-exemple" required />
-                <button type="submit" class="bouton bouton-principal" id="liste-bouton" data-t="liste-bouton">Me prévenir</button>
-              </div>
-              <p class="message" id="liste-message" role="status" aria-live="polite"></p>
-              <p class="note" data-t="liste-loi">Elle sert seulement à t’écrire le jour de l’ouverture. Jamais donnée, effacée sur simple demande.</p>
-            </form>
-            <p class="message reussite" id="liste-reussite" role="status" aria-live="polite"></p>
-          </div>
-          <p class="bientot si-attente-non" data-t="liste-fermee">La liste d’attente n’est pas encore ouverte.</p>
-        </div>
-      </section>
-
-      <!-- Un projet ouvert : la vision, la discussion, les avis -->
-      <section class="bloc" id="avis">
-        <div class="bloc-tete">
-          <h2 data-t="avis-titre">Un projet ouvert</h2>
-          <p class="bloc-phrase" data-t="avis-phrase">Éperon se construit avec ses joueurs. Le code est ouvert, les idées aussi.</p>
-        </div>
-        <div>
-          <p class="bloc-phrase" data-t="avis-modele">Chez toi, Éperon est gratuit. La version en ligne sera payante : c’est elle qui fera vivre le projet.</p>
-          <p class="bloc-phrase" data-t="avis-seul">Il débute, et une seule personne le porte pour l’instant. Des choses manquent, d’autres changeront. Tu veux donner ton avis, ou aider à le construire ? Viens en parler.</p>
-          <div class="suite si-contact-oui">
-            <a class="bouton bouton-principal si-discussion-oui" data-lien="discussion" href="#avis" rel="noopener" data-t="avis-discuter">Rejoindre la discussion</a>
-            <a class="bouton bouton-second si-avis-oui" data-lien="avis" href="#avis" rel="noopener" data-t="avis-bouton">Signaler un bug, proposer une idée</a>
-          </div>
-          <p class="bientot si-contact-non" data-t="avis-bientot">Le salon de discussion ouvre bientôt. Cette page donnera le lien ce jour-là.</p>
+          <p class="bientot si-code-non" data-t="inst-bientot">Le téléchargement ouvre bientôt. Cette page donnera le lien ce jour-là, et le salon Discord l’annoncera.</p>
         </div>
       </section>
     </main>
 
     <footer class="pied">
       <div>
-        <span class="marque" data-nom>Éperon</span>
-        <p data-t="pied-marque">Chess.com est une marque de son propriétaire. Éperon n’y est pas affilié.</p>
-        <p data-t="pied-vie">Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
+        <img class="marque-logo petit" src="images/eperon-logo.png" width="850" height="252" alt="Éperon" loading="lazy" />
+        <p data-t="legende">Les images montrent l’appli avec un joueur inventé.</p>
+        <p data-t="pied-marque">Chess.com, Lichess et DGT sont des marques de leurs propriétaires. Éperon n’y est pas affilié.</p>
+        <p data-t="pied-vie">Vie privée : cette page ne dépose aucun cookie et ne te suit pas. Elle retient seulement ta langue, dans ton navigateur. Elle est hébergée par GitHub, qui voit ton adresse de connexion, comme tout hébergeur.</p>
       </div>
       <a class="langue" href="#" id="haut" aria-label="Haut de la page">↑</a>
     </footer>
 
     <script src="reglages.js"></script>
     <script src="textes.js"></script>
+    <script src="exemples.js"></script>
+    <script src="echiquier.js"></script>
     <script src="page.js"></script>
   </body>
 </html>

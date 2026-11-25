@@ -39,6 +39,8 @@
     // Un message déjà affiché sous la liste d'attente suit la langue ; un envoi en cours garde son mot.
     if (etatListe) dire(etatListe);
     if (bouton && bouton.disabled) bouton.textContent = mots['liste-envoi'];
+    // L'échiquier vivant du haut de page suit la langue (echiquier.js).
+    if (window.EchiquierVivant) window.EchiquierVivant.langue(langue);
   }
 
   // ---- Le nom, partout d'un coup ----
@@ -156,4 +158,37 @@
       poser(l);
     });
   poser(langueDeDepart());
+})();
+
+// ---- Les rubriques arrivent doucement quand on descend ----
+// Sans ce programme, ou si la personne a demandé moins de mouvement, tout est visible d'emblée.
+(function () {
+  var calme = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (calme || !('IntersectionObserver' in window)) return;
+  var racine = document.documentElement;
+  var morceaux = document.querySelectorAll('.apparait');
+  var veilleur = new IntersectionObserver(
+    function (vus) {
+      vus.forEach(function (v) {
+        if (v.isIntersecting) {
+          v.target.classList.add('vu');
+          veilleur.unobserve(v.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+  );
+  racine.classList.add('anime');
+  morceaux.forEach(function (m) {
+    veilleur.observe(m);
+  });
+  // Filet de sécurité : rien ne reste caché plus de trois secondes après un saut dans la page.
+  window.addEventListener('hashchange', function () {
+    setTimeout(function () {
+      morceaux.forEach(function (m) {
+        var r = m.getBoundingClientRect();
+        if (r.top < window.innerHeight) m.classList.add('vu');
+      });
+    }, 300);
+  });
 })();

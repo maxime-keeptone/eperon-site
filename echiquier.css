@@ -1,0 +1,291 @@
+/* L'échiquier vivant du haut de page. Mêmes couleurs que l'appli (variables de style.css). */
+.echiquier-vivant {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.echiquier-vivant[hidden] {
+  display: none;
+}
+/* La ligne « De vraies réponses du coach… » ne se montre que sous l'échiquier construit (sans programme, l'image de secours reste seule). */
+.origine {
+  display: none;
+}
+.echiquier-vivant.ev-pret + .origine {
+  display: block;
+}
+.ev-carte {
+  padding: 4px 16px 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* ---- Au-dessus : « À toi » (ou le mot du moment à sa place), puis la question et les petits points ---- */
+/* La ligne du haut garde toujours la place de deux lignes : quand « Pas celui-là… » arrive, rien ne bouge dans la page. */
+.ev-tete {
+  display: flex;
+  align-items: flex-end;
+  min-height: 40px;
+}
+.ev-sur,
+.ev-message {
+  font-size: var(--t-petit);
+  line-height: 20px;
+}
+.ev-sur {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.ev-message {
+  color: var(--text-2);
+  text-wrap: balance;
+}
+.ev-sur:empty,
+.ev-message:empty,
+.ev-note-langue:empty {
+  display: none;
+}
+.ev-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: var(--tap);
+}
+.ev-points {
+  display: flex;
+  margin-right: -16px;
+}
+.ev-points[hidden] {
+  display: none;
+}
+.ev-point {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.ev-point::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-pill);
+  background: var(--border-strong);
+  transition: width 200ms var(--ease), background-color 200ms var(--ease);
+}
+.ev-point:hover::before {
+  background: var(--text-3);
+}
+.ev-point[aria-current='true']::before {
+  width: 20px;
+  background: var(--accent-text);
+}
+.ev-question {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.ev-note-langue {
+  margin: -4px 0 0;
+}
+
+/* ---- Le plateau : toujours carré, et jamais plus haut que ce que l'écran peut montrer ---- */
+/* --ev-reste : la place prise à l'écran par ce qui entoure le plateau (le haut de la page, la question, le bouton).
+   Ainsi, au départ, le plateau et « Montre-moi » tiennent ensemble dans l'écran, même sur un téléphone avec les barres de Safari. */
+.ev-carte {
+  --ev-reste: 416px;
+}
+:lang(en) .ev-carte {
+  --ev-reste: 440px; /* une ligne de plus sous la question */
+}
+.ev-plateau {
+  width: min(100%, max(240px, calc(100vh - var(--ev-reste))));
+  width: min(100%, max(240px, calc(100svh - var(--ev-reste))));
+  margin: 4px auto 0;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@media (min-width: 900px) {
+  .ev-carte {
+    --ev-reste: 350px;
+  }
+  :lang(en) .ev-carte {
+    --ev-reste: 374px;
+  }
+}
+.ev-dessin {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: manipulation;
+}
+.ev-jouable .ev-dessin {
+  cursor: pointer;
+}
+.ev-en-main .ev-dessin {
+  cursor: grabbing;
+}
+.ev-claire {
+  fill: #ecd5b0;
+}
+.ev-foncee {
+  fill: #b0835a;
+}
+.ev-repere {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.ev-a-droite {
+  text-anchor: end;
+}
+.ev-sur-claire {
+  fill: #b0835a;
+}
+.ev-sur-foncee {
+  fill: #ecd5b0;
+}
+.ev-choisie {
+  fill: rgba(159, 208, 107, 0.55);
+}
+.ev-cible {
+  fill: rgba(29, 24, 20, 0.24);
+  pointer-events: none;
+}
+.ev-cible.ev-prise {
+  fill: none;
+  stroke: rgba(29, 24, 20, 0.24);
+  stroke-width: 10;
+}
+.ev-piece {
+  pointer-events: none;
+}
+.ev-fleche {
+  pointer-events: none;
+  opacity: 0.9;
+  animation: ev-arrive 260ms var(--ease);
+}
+.ev-fleche line {
+  stroke: var(--accent);
+  stroke-width: 20;
+  stroke-linecap: round;
+}
+.ev-fleche polygon {
+  fill: var(--accent);
+}
+@keyframes ev-arrive {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---- Dessous : la réponse du coach, puis les boutons (dans le fil de la page : rien ne recouvre le texte) ---- */
+.ev-bas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.ev-reponse:empty {
+  display: none;
+}
+.ev-reponse {
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  animation: ev-arrive 300ms var(--ease);
+}
+.ev-coach-tete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.ev-coach-nom {
+  color: var(--accent-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+.ev-bravo {
+  color: var(--accent-text);
+  font-family: var(--font-title);
+  font-weight: 800;
+}
+/* La première phrase en clair, la suite en gris : les mots, eux, ne changent pas. */
+.ev-coach-texte {
+  color: var(--text-2);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+.ev-coach-debut {
+  color: var(--text);
+}
+.ev-note {
+  color: var(--text-3);
+  font-size: 14px;
+}
+.ev-boutons {
+  display: flex;
+  flex-wrap: wrap; /* sur un tout petit téléphone, les deux boutons passent l'un sous l'autre au lieu de déborder */
+  gap: 8px;
+  margin-top: auto;
+}
+.ev-bouton {
+  flex: 1 1 auto;
+  min-height: var(--tap);
+  padding: 0 6px; /* « Recommencer » et « Exemple suivant » tiennent côte à côte au téléphone */
+  white-space: nowrap;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-strong);
+  color: var(--text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  cursor: pointer;
+  transition: background-color 120ms var(--ease);
+}
+.ev-bouton[hidden] {
+  display: none;
+}
+.ev-bouton:hover {
+  background: rgba(255, 238, 214, 0.11);
+}
+.ev-suivant {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.ev-suivant:hover {
+  background: rgba(129, 182, 76, 0.24);
+}
+.ev-suivant::after {
+  content: ' ›';
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-fleche,
+  .ev-reponse {
+    animation: none;
+  }
+  .ev-point::before,
+  .ev-bouton {
+    transition: none;
+  }
+}
