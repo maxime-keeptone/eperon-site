@@ -802,3 +802,17 @@ h1 {
     aspect-ratio: 1570 / 1128;
   }
 }
+
+/* La page « adresse introuvable » (404.html). */
+.introuvable {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 96px 24px 120px;
+  text-align: center;
+}
+.introuvable h1 {
+  margin-bottom: 16px;
+}
+.introuvable .hero-phrase {
+  margin: 0 auto 32px;
+}
