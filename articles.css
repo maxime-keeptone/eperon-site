@@ -36,7 +36,7 @@
 
 /* ---- La réponse courte : la première chose qu'on lit ---- */
 .art-courte {
-  max-width: 44em;
+  max-width: calc(var(--lecture) + 40px);
   margin-top: 24px;
   padding: 20px;
   border-radius: var(--r-lg);
@@ -45,13 +45,13 @@
 .art-courte h2.surtitre {
   margin-bottom: 6px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: var(--t-petit);
   line-height: 1.45;
   letter-spacing: 0;
 }
 .art-courte p {
   color: var(--text);
-  font-size: 19px;
+  font-size: var(--t-chapo);
   line-height: 1.4;
   text-wrap: pretty;
 }
@@ -108,19 +108,24 @@
 .art-carte .art-date {
   margin: 0 0 6px;
   color: var(--accent-text);
-  font-size: 14px;
+  font-size: var(--t-petit);
   font-weight: 700;
 }
 
 /* ---- Le billet du journal : une lettre, signée (la carte « histoire » de l'accueil) ---- */
 .art-billet {
-  max-width: calc(46em + 2 * var(--marge));
+  max-width: var(--largeur);
   margin: 0 auto;
   padding: 8px var(--marge) 0;
 }
-.art-lettre {
-  max-width: none;
-  margin-top: 24px;
+/* Le texte du billet est posé à même la page, sans carte, à la largeur de lecture. */
+.histoire-corps.art-lettre {
+  max-width: var(--lecture);
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
 }
 .art-lettre > p:first-child {
   margin-top: 0;
@@ -134,12 +139,6 @@
 .art-lettre h2 + p {
   margin-top: 10px;
 }
-.histoire-corps.art-lettre .art-lettre-bouton {
-  margin-top: 24px;
-}
-.art-lettre-bouton .bouton {
-  width: 100%;
-}
 .histoire-corps.art-lettre .signature {
   margin-top: 32px;
 }
@@ -150,9 +149,6 @@
   margin: 0 auto;
   padding: 24px var(--marge) 0;
 }
-.art-billet + .art-suite {
-  max-width: calc(46em + 2 * var(--marge));
-}
 .art-suite .bouton-lien {
   display: inline-flex;
 }
@@ -161,9 +157,6 @@
   .art-cartes {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-  }
-  .art-lettre-bouton .bouton {
-    width: auto;
   }
 }
 
@@ -185,12 +178,9 @@
     margin-top: 24px;
   }
   .art-courte {
+    max-width: calc(var(--lecture) + 80px);
     margin-top: 40px;
     padding: 32px 40px;
-  }
-  .art-courte p {
-    font-size: 24px;
-    line-height: 1.35;
   }
   .art-liste {
     padding-top: 56px;
@@ -205,7 +195,7 @@
   .art-carte h2 {
     font-size: 26px;
   }
-  .art-lettre {
+  .histoire-corps.art-lettre {
     margin-top: 40px;
   }
   .art-lettre h2 {
@@ -224,10 +214,22 @@
 
 /* Deux paragraphes simples à droite d'un titre (page des profs et des clubs). */
 .art-paras p {
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text-2);
   text-wrap: pretty;
 }
 .art-paras p + p {
   margin-top: 12px;
+}
+
+/* La phrase sous un titre court (page des profs et des clubs) : l'ancien titre, en plus petit. */
+.art-sous-titre {
+  max-width: var(--lecture);
+  margin-top: 12px;
+  color: var(--text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-chapo);
+  line-height: 1.3;
+  text-wrap: pretty;
 }

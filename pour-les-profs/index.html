@@ -36,12 +36,33 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/" aria-current="page">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/" aria-current="page">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <section class="art-haut">
-        <p class="surtitre">Pour les profs et les clubs</p>
-        <h1>Tu donnes des cours, ou tu animes un club ? Éperon se construit aussi avec toi.</h1>
+        <p class="surtitre fil"><a href="/">Accueil</a></p>
+        <h1>Profs et clubs</h1>
+        <p class="art-sous-titre">Tu donnes des cours, ou tu animes un club ? Éperon se construit aussi avec toi.</p>
         <p class="hero-phrase">Éperon est un coach d’échecs à installer sur son ordinateur. Maxime, qui le construit, le voulait « comme un prof particulier ou même un soutien à un prof particulier ».</p>
       </section>
 
@@ -75,13 +96,11 @@
           <h2>Qu’est-ce qui te manquerait ?</h2>
           <p>Éperon se construit avec les gens, pour les gens. Joueurs, profs, clubs : toutes les remarques constructives et tous les coups de main sont bienvenus.</p>
           <p>Viens dire ce qui te servirait, pour tes cours ou pour ton club.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
 
-      <section class="art-suite">
-        <p><a class="bouton bouton-lien" href="/">Découvrir Éperon</a></p>
-      </section>
     </main>
 
     <footer class="pied">
@@ -102,5 +121,6 @@
       </div>
       <a class="langue" href="#" aria-label="Haut de la page">↑</a>
     </footer>
+    <script src="/menu.js"></script>
   </body>
 </html>

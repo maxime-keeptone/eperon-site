@@ -29,4 +29,18 @@ window.OUVERTURE = {
     { de: 'b1', vers: 'a3', nom: 'Ca3', phrase: 'Le cavalier blanc part lui aussi en voyage : il vise c2, pour soutenir d4.' },
     { de: 'e7', vers: 'f5', nom: 'Cf5', phrase: 'Ton cavalier arrive en f5. Trois de tes pièces attaquent d4 : place aux plans.' },
   ],
+  // La suite du bon réflexe, pour le bouton « Voir sur le plateau » : on garde les 10 premiers demi-coups (jusqu’à 5… Db6), puis ceux-ci.
+  // Vérifiés légaux avec python-chess, et au moteur (après 9. Fb5+, les Blancs gagnent la dame), le 25 novembre 2026.
+  reflexe: {
+    depuis: 10,
+    coups: [
+      { de: 'f1', vers: 'd3', nom: 'Fd3', phrase: 'Un autre coup des Blancs. Leur fou se met devant leur dame : le pion d4 a l’air mal défendu.' },
+      { de: 'c5', vers: 'd4', nom: 'cxd4', phrase: 'Tu prends en d4.' },
+      { de: 'c3', vers: 'd4', nom: 'cxd4', phrase: 'Les Blancs reprennent avec le pion.' },
+      { de: 'c6', vers: 'd4', nom: 'Cxd4', phrase: 'Tu comptes : deux de tes pièces attaquent d4, une seule le défend. Ton cavalier prend.' },
+      { de: 'f3', vers: 'd4', nom: 'Cxd4', phrase: 'Le cavalier blanc reprend.' },
+      { de: 'b6', vers: 'd4', nom: 'Dxd4', phrase: 'Ta dame reprend. Un pion de gagné, on dirait. Cherche l’échec des Blancs.' },
+      { de: 'd3', vers: 'b5', nom: 'Fb5+', phrase: 'Échec. Le fou n’est plus entre les deux dames : quoi que tu répondes, la dame blanche prend la tienne.' },
+    ],
+  },
 };

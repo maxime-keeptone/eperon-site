@@ -17,7 +17,7 @@ window.OUVERTURE = {
     { de: 'a7', vers: 'a6', nom: 'a6', phrase: 'Les Noirs posent une question à ton fou : tu prends le cavalier ou tu recules ?' },
     { de: 'b5', vers: 'a4', nom: 'Fa4', phrase: 'Tu recules et tu gardes ton fou. Il regarde toujours le cavalier c6.' },
     { de: 'g8', vers: 'f6', nom: 'Cf6', phrase: 'Le deuxième cavalier noir sort et attaque ton pion e4.' },
-    { de: 'e1', vers: 'g1', nom: 'O-O', phrase: 'Tu roques : ton roi est à l’abri. Ta tour pourra venir en e1 pour soutenir e4.' },
+    { de: 'e1', vers: 'g1', nom: 'O-O', phrase: 'Tu roques, et tu laisses e4 sans défenseur : c’est permis. Si le cavalier noir le prend, tu pousses d4 ou tu joues ta tour en e1. Le roi noir est encore au milieu, et tu regagnes ton pion.' },
     { de: 'f8', vers: 'e7', nom: 'Fe7', phrase: 'Les Noirs sortent leur fou et préparent leur roque.' },
     { de: 'f1', vers: 'e1', nom: 'Te1', phrase: 'Ta tour défend le pion e4. Maintenant, ton fou peut vraiment prendre le cavalier c6, le seul gardien de e5.' },
     { de: 'b7', vers: 'b5', nom: 'b5', phrase: 'Les Noirs chassent ton fou : leur cavalier c6 reste en place. Et ils gagnent de la place de ce côté.' },

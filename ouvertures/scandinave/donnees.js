@@ -23,7 +23,7 @@ window.OUVERTURE = {
     { de: 'c7', vers: 'c6', nom: 'c6', phrase: 'Un petit coup très utile : ta dame a un chemin pour rentrer, par c7 ou d8.' },
     { de: 'f1', vers: 'c4', nom: 'Fc4', phrase: 'Le fou blanc sort et vise f7.' },
     { de: 'c8', vers: 'f5', nom: 'Ff5', phrase: 'Ton fou sort d’abord. Ton pion ira en e6 juste après, sans l’enfermer.' },
-    { de: 'c1', vers: 'd2', nom: 'Fd2', phrase: 'Le fou blanc se place devant son roi. Le cavalier c3, que ta dame tenait immobile, peut bouger.' },
-    { de: 'e7', vers: 'e6', nom: 'e6', phrase: 'Ton pion ferme la diagonale du fou blanc et ouvre la route à ton fou de f8. Place aux plans.' },
+    { de: 'c1', vers: 'd2', nom: 'Fd2', phrase: 'Jusqu’ici, ta dame clouait le cavalier c3 : le roi blanc était juste derrière lui. Le fou blanc coupe cette ligne, et il regarde ta dame. Si le cavalier saute, elle est attaquée : garde-lui la case d8.' },
+    { de: 'e7', vers: 'e6', nom: 'e6', phrase: 'Ton pion ferme la diagonale du fou blanc et ouvre la route à ton fou de f8. Si le cavalier blanc saute en d5, ta dame rentre en d8. Place aux plans.' },
   ],
 };

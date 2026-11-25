@@ -36,10 +36,31 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/" aria-current="page">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/" aria-current="page">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <section class="art-haut">
+        <p class="surtitre fil"><a href="/">Accueil</a></p>
         <h1>Le journal du projet</h1>
         <p class="hero-phrase">Éperon se construit avec les gens, pour les gens. Ici, celui qui le construit raconte pourquoi il existe et comment il avance.</p>
       </section>
@@ -54,7 +75,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon met des mots sur tes propres parties.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Il lit tes parties et met des mots sur ce qui te coûte des points. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -77,5 +99,6 @@
       </div>
       <a class="langue" href="#" aria-label="Haut de la page">↑</a>
     </footer>
+    <script src="/menu.js"></script>
   </body>
 </html>

@@ -218,7 +218,7 @@
 }
 .ev-coach-nom {
   color: var(--accent-text);
-  font-size: 14px;
+  font-size: var(--t-petit);
   font-weight: 700;
 }
 .ev-bravo {
@@ -238,7 +238,7 @@
 }
 .ev-note {
   color: var(--text-3);
-  font-size: 14px;
+  font-size: var(--t-petit);
 }
 .ev-boutons {
   display: flex;
@@ -246,15 +246,16 @@
   gap: 8px;
   margin-top: auto;
 }
+/* Les boutons du plateau : tous des actions secondaires (le vert doux de style.css), les mêmes que sur les pages des mots et des ouvertures. */
 .ev-bouton {
   flex: 1 1 auto;
+  white-space: nowrap; /* « Recommencer » et « Exemple suivant » tiennent côte à côte au téléphone */
   min-height: var(--tap);
-  padding: 0 6px; /* « Recommencer » et « Exemple suivant » tiennent côte à côte au téléphone */
-  white-space: nowrap;
+  padding: 0 6px;
+  border: 0;
   border-radius: var(--r-md);
-  border: 1px solid var(--border-strong);
-  background: var(--surface-strong);
-  color: var(--text);
+  background: var(--accent-soft);
+  color: var(--accent-text);
   font-family: var(--font-title);
   font-weight: 800;
   font-size: var(--t-corps);
@@ -265,14 +266,6 @@
   display: none;
 }
 .ev-bouton:hover {
-  background: rgba(255, 238, 214, 0.11);
-}
-.ev-suivant {
-  border-color: transparent;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-}
-.ev-suivant:hover {
   background: rgba(129, 182, 76, 0.24);
 }
 .ev-suivant::after {

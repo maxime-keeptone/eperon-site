@@ -5,7 +5,7 @@
   margin: 14px 0 12px;
 }
 .apprendre-titre {
-  font-size: 13px;
+  font-size: var(--t-petit);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
   align-items: center;
   min-height: var(--tap);
   color: var(--text-2);
-  font-size: 15px;
+  font-size: var(--t-petit);
 }
 .apprendre a:hover {
   color: var(--text);
@@ -47,18 +47,6 @@
   color: var(--text);
   font-weight: 600;
 }
-/* Téléphone et tablette : un lien par ligne, sans point, facile à toucher (en dessous de 900 px, la ligne ne tient plus). */
-@media (max-width: 899px) {
-  .apprendre ul {
-    flex-direction: column;
-    margin-left: 0;
-    clip-path: none;
-  }
-  .apprendre li::before {
-    content: none;
-  }
-}
-
 /* Un mot des échecs dans le texte : il mène à sa page. */
 .lien-mot {
   text-decoration: underline;
@@ -67,4 +55,171 @@
 }
 .lien-mot:hover {
   text-decoration-thickness: 2px;
+}
+
+/* ======== Le haut des pages intérieures : le même bandeau, le même fil, le titre à la même hauteur ======== */
+/* Cette feuille est chargée en dernier : ce qui suit vaut pour toutes les familles de pages (ouvertures, mots, questions, journal, profs, page introuvable). */
+
+/* ---- Le bandeau : le logo ramène à l'accueil, le menu « Apprendre » mène aux cinq familles ---- */
+.barre:has(.barre-apprendre) {
+  padding-top: 8px;
+  padding-bottom: 0;
+}
+.barre-apprendre {
+  position: relative;
+}
+.barre-apprendre ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.barre-large {
+  display: none;
+}
+/* Téléphone et tablette : un pli. Un toucher l'ouvre, la liste se pose par-dessus la page. */
+.barre-pli summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 4px;
+  color: var(--text);
+  font-size: var(--t-petit);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.barre-pli summary::-webkit-details-marker {
+  display: none;
+}
+.barre-pli summary::after {
+  content: '›';
+  color: var(--text-3);
+  font-size: 20px;
+  line-height: 1;
+  transform: rotate(90deg);
+}
+.barre-pli[open] summary::after {
+  transform: rotate(-90deg);
+}
+.barre-pli ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 5;
+  min-width: 250px;
+  padding: 6px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-strong);
+  background: #2a231d;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+.barre-pli a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 12px;
+  border-radius: var(--r-md);
+  color: var(--text);
+}
+.barre-pli a:hover {
+  background: var(--surface-strong);
+}
+.barre-apprendre a[aria-current] {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+/* Ordinateur : les cinq liens en ligne, à droite du logo. */
+@media (min-width: 900px) {
+  .barre:has(.barre-apprendre) {
+    padding-top: 28px;
+  }
+}
+@media (min-width: 1000px) {
+  .barre-pli {
+    display: none;
+  }
+  .barre-large {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .barre-large a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tap);
+    color: var(--text-2);
+    font-size: var(--t-petit);
+    font-weight: 550;
+  }
+  .barre-large a:hover {
+    color: var(--text);
+  }
+}
+
+/* ---- Le fil : d'où l'on vient, sur une ligne de 44 px qui se touche. Toutes les pages en ont un. ---- */
+.surtitre.fil {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 6px;
+  min-height: var(--tap);
+  margin: 0;
+}
+.surtitre.fil a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0;
+  color: inherit;
+}
+.surtitre.fil a::before {
+  content: '‹ ';
+  white-space: pre;
+}
+.surtitre.fil a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Le titre : même place, même taille sur toutes les pages ---- */
+.ouv-haut,
+.mot-haut,
+.mot-sommaire-haut,
+.som-haut,
+.art-haut,
+.art-billet {
+  padding-top: 0;
+}
+.ouv-haut h1,
+.mot-haut h1,
+.mot-sommaire-haut h1,
+.som-haut h1,
+.art-haut h1,
+.art-billet h1 {
+  max-width: 17em;
+  font-size: 28px; /* au téléphone, le plateau et son bouton tiennent dans l'écran sous le titre */
+}
+@media (min-width: 900px) {
+  .ouv-haut,
+  .mot-haut,
+  .mot-sommaire-haut,
+  .som-haut,
+  .art-haut,
+  .art-billet {
+    padding-top: 16px;
+  }
+  .ouv-haut h1,
+  .mot-haut h1,
+  .mot-sommaire-haut h1,
+  .som-haut h1,
+  .art-haut h1,
+  .art-billet h1 {
+    font-size: 56px;
+  }
+  /* Le titre part du haut, comme partout : il ne se centre plus sur le plateau. */
+  .ouv-haut > :first-child,
+  .mot-haut > :first-child {
+    align-self: start;
+    padding-bottom: 0;
+  }
 }

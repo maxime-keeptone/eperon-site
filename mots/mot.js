@@ -1,5 +1,7 @@
 // Le plateau des pages « Les mots des échecs en clair » : UNE position, les cases importantes surlignées,
-// et un bouton « Montre-moi » qui joue l'exemple, coup après coup, puis « Recommencer ».
+// et un bouton « Montre-moi » qui joue le premier coup. Ensuite on avance à son rythme : « Suivant », « Précédent ».
+// À la fin, « Suivant » s'éteint et « Recommencer » apparaît sous la phrase, à une autre place :
+// un double toucher trop rapide ne ramène jamais au départ. Comme sur les pages « ouvertures ».
 // La position (en FEN), les cases et les coups viennent du fichier donnees.js de chaque page (window.MOT).
 // Ce programme ne juge pas les coups : il les rejoue tels qu'ils sont écrits (vérifiés avant, à part).
 (function () {
@@ -10,7 +12,6 @@
   var NS = 'http://www.w3.org/2000/svg';
   var C = 100; // côté d'une case, dans le dessin
   var COLONNES = 'abcdefgh';
-  var PAUSE = 1500; // le temps de lire la phrase entre deux coups
 
   // ---- Les positions, calculées une fois : la case 0 est a8, la case 63 est h1 ----
   function numero(nom) {
@@ -89,26 +90,40 @@
   var dessin = svg('svg', { viewBox: '0 0 800 800', role: 'img', class: 'mot-dessin' }, plateau);
   var coucheCases = svg('g', {}, dessin);
   var coucheMarques = svg('g', {}, dessin);
-  var couchePieces = svg('g', {}, dessin);
-  // Les repères sont dessinés par-dessus les pièces, dans le coin de la case : une pièce ne les cache jamais.
-  // Le chiffre en haut à gauche de la colonne de gauche, la lettre en bas à droite de la rangée du bas.
   var coucheReperes = svg('g', { 'aria-hidden': 'true' }, dessin);
+  var couchePieces = svg('g', {}, dessin);
+  // Les repères, comme sur l'accueil : discrets, dans le coin de la case, sous les pièces.
+  // Le chiffre en haut à gauche de la colonne de gauche, la lettre en bas à droite de la rangée du bas.
   for (var i = 0; i < 64; i++) {
     var p = coin(i);
     var claire = ((i % 8) + (i >> 3)) % 2 === 0;
     svg('rect', { x: p.x, y: p.y, width: C, height: C, class: claire ? 'mot-claire' : 'mot-foncee' }, coucheCases);
     var ton = claire ? 'mot-repere mot-sur-claire' : 'mot-repere mot-sur-foncee';
-    if (p.x === 0) svg('text', { x: 5, y: p.y + 3, dy: '0.8em', class: ton }, coucheReperes).textContent = String(8 - (i >> 3));
-    if (p.y === 700) svg('text', { x: p.x + 96, y: 794, class: ton + ' mot-a-droite' }, coucheReperes).textContent = COLONNES.charAt(i % 8);
+    if (p.x === 0) svg('text', { x: 7, y: p.y + 22, class: ton }, coucheReperes).textContent = String(8 - (i >> 3));
+    if (p.y === 700) svg('text', { x: p.x + 93, y: 791, class: ton + ' mot-a-droite' }, coucheReperes).textContent = COLONNES.charAt(i % 8);
   }
 
+  // Les deux boutons, juste sous le plateau, toujours à la même place. Celui de droite change de mot :
+  // « Montre-moi » au départ, « Suivant » ensuite (éteint à la fin).
+  var boutons = el('div', 'mot-boutons', carte);
+  var bAvant = el('button', 'mot-bouton mot-precedent', boutons);
+  bAvant.type = 'button';
+  bAvant.textContent = 'Précédent';
+  var bApres = el('button', 'mot-bouton', boutons);
+  bApres.type = 'button';
+
   // Le texte du moment, lu à voix haute quand il change. Derrière lui, invisibles, tous les textes de l'exemple :
-  // ils gardent la place du plus long, et le bouton ne bouge jamais quand la phrase change.
+  // ils gardent la place du plus long, et rien ne bouge sous le texte quand la phrase change.
   var texte = el('div', 'mot-texte', carte);
   var courant = el('div', 'mot-courant', texte);
   courant.setAttribute('aria-live', 'polite');
   var titreCoup = el('p', 'mot-coup', courant);
   var phrase = el('p', 'mot-phrase', courant);
+  // « Recommencer » : sous la dernière phrase, seulement à la fin.
+  var bRecommencer = el('button', 'mot-recommencer', courant);
+  bRecommencer.type = 'button';
+  bRecommencer.textContent = 'Recommencer';
+  bRecommencer.hidden = true;
   [{ titre: D.titreDepart || 'La position', phrase: D.phraseDepart || '' }]
     .concat(
       D.coups.map(function (coup, k) {
@@ -121,14 +136,11 @@
       el('p', 'mot-coup', gabarit).textContent = t.titre;
       el('p', 'mot-phrase', gabarit).textContent = t.phrase;
     });
-
-  var boutons = el('div', 'mot-boutons', carte);
-  var bouton = el('button', 'mot-bouton', boutons);
-  bouton.type = 'button';
+  // La place de « Recommencer » est gardée derrière la dernière phrase : rien ne bouge quand il apparaît.
+  el('span', 'mot-recommencer', texte.lastChild).textContent = 'Recommencer';
 
   // ---- Montrer une position ----
   var rang = 0;
-  var minuterie = null;
   function montrer(n) {
     rang = n;
     var b = positions[n];
@@ -149,44 +161,56 @@
     dessin.setAttribute('aria-label', coup ? 'L’échiquier après ' + etiquette(n) + '.' : D.description || 'L’échiquier de l’exemple.');
     titreCoup.textContent = coup ? etiquette(n) : D.titreDepart || 'La position';
     phrase.textContent = coup ? coup.phrase : D.phraseDepart || '';
+    var etat = n === 0 ? 'depart' : n === dernier ? 'fini' : 'joue';
+    carte.setAttribute('data-etat', etat);
+    bAvant.disabled = n === 0;
+    bApres.textContent = etat === 'depart' ? 'Montre-moi' : 'Suivant';
+    bApres.className = 'mot-bouton ' + (etat === 'depart' ? 'mot-bouton-montre' : 'mot-suivant');
+    var auClavier = document.activeElement === bApres || document.activeElement === bRecommencer;
+    bApres.disabled = etat === 'fini';
+    bRecommencer.hidden = etat !== 'fini';
+    // Le clavier ne reste jamais sur un bouton éteint ou caché.
+    if (auClavier) (etat === 'fini' ? bRecommencer : bApres).focus({ preventScroll: true });
   }
-  function etat(nom) {
-    carte.setAttribute('data-etat', nom);
-    bouton.disabled = nom === 'joue';
-    bouton.textContent = nom === 'fini' ? 'Recommencer' : 'Montre-moi';
-    bouton.className = nom === 'fini' ? 'mot-bouton' : 'mot-bouton mot-bouton-montre';
-  }
-  function suivant() {
-    montrer(rang + 1);
-    if (rang >= dernier) {
-      minuterie = null;
-      etat('fini');
-      pretA = maintenant() + DELAI;
-    } else {
-      minuterie = setTimeout(suivant, PAUSE);
-    }
-  }
-  // Un double toucher ne doit rien défaire : quand le bouton vient de changer de rôle (« Montre-moi » → « Recommencer »,
-  // ou l'inverse), il attend un court instant avant d'accepter un nouveau toucher.
-  var DELAI = 600;
-  var pretA = 0;
-  function maintenant() {
-    return typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now();
-  }
-  bouton.addEventListener('click', function () {
-    if (minuterie) return;
-    if (maintenant() < pretA) return;
-    if (carte.getAttribute('data-etat') === 'fini') {
-      montrer(0);
-      etat('depart');
-      pretA = maintenant() + DELAI;
-      return;
-    }
-    etat('joue');
-    suivant();
+  // Chaque toucher compte : aucun n'est mis de côté.
+  bApres.addEventListener('click', function () {
+    if (rang < dernier) montrer(rang + 1);
+  });
+  bRecommencer.addEventListener('click', function () {
+    montrer(0);
+  });
+  bAvant.addEventListener('click', function () {
+    if (rang > 0) montrer(rang - 1);
+    // Revenu au départ, « Précédent » s'éteint : le clavier passe au bouton d'à côté.
+    if (rang === 0) bApres.focus({ preventScroll: true });
   });
 
   montrer(0);
-  etat('depart');
+  // Téléphone avec peu de hauteur : le plateau rapetisse juste assez pour que les boutons se voient à l'arrivée,
+  // sans défiler. Recalculé seulement quand la largeur change (pas quand la barre du navigateur se replie).
+  var largeurVue = -1;
+  function ajuster(force) {
+    var l = document.documentElement.clientWidth;
+    if (!force && l === largeurVue) return;
+    largeurVue = l;
+    plateau.style.maxWidth = '';
+    if (!window.matchMedia || !window.matchMedia('(max-width: 899px)').matches) return;
+    var cote = plateau.getBoundingClientRect().width;
+    var bas = boutons.getBoundingClientRect().bottom + (window.pageYOffset || 0);
+    var place = document.documentElement.clientHeight - (bas - cote) - 12;
+    if (place < cote) plateau.style.maxWidth = Math.max(216, Math.floor(place)) + 'px';
+  }
+  ajuster(true);
+  window.addEventListener('resize', function () {
+    ajuster(false);
+  });
+  window.addEventListener('load', function () {
+    ajuster(true);
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      ajuster(true);
+    });
+  }
   racine.classList.add('mot-pret');
 })();

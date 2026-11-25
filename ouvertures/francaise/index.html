@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>La Française : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Avec les Noirs, tu joues 1. e4 e6 2. d4 d5, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Avec les Noirs, tu joues 1. e4 e6 2. d4 d5, et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-ligne">Ici, on regarde la Française quand les Blancs avancent leur pion en e5. C’est une des façons de la jouer.</p>
           <p class="ouv-cote">Tu as les Noirs. Cette page te parle de ton côté, et le plateau est tourné vers toi.</p>
         </div>
@@ -61,7 +81,7 @@
           <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
           <ol class="groupe etapes">
             <li><span class="numero" aria-hidden="true">1</span><div><h3>Appuie sur d4</h3><p>Ta dame en b6 et tes deux cavaliers, en c6 et en f5, attaquent ce pion. Tant qu’ils restent là, la dame blanche et le cavalier f3 sont occupés à le défendre.</p></div></li>
-            <li><span class="numero" aria-hidden="true">2</span><div><h3>Finis de sortir tes pièces</h3><p>Le fou en e7, puis le roque. Ensuite, ton autre fou va en d7 et ta tour en c8, sur la <a class="lien-mot" href="/mots/colonne-ouverte/">colonne ouverte</a>.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Finis de sortir tes pièces</h3><p>Le fou en e7, puis le roque. Ton fou c8 est ta pièce la plus difficile à sortir : ton pion e6 lui barre la route. Pose-le en d7 pour commencer : il aura de l’air quand ta poussée f6 ouvrira le jeu. Ta tour, elle, va en c8, sur la <a class="lien-mot" href="/mots/colonne-ouverte/">colonne ouverte</a>.</p></div></li>
             <li><span class="numero" aria-hidden="true">3</span><div><h3>Attaque e5 avec ton pion f</h3><p>Quand ton roi est à l’abri, pousse f6. Ton pion attaque e5, le deuxième pion du centre blanc.</p></div></li>
           </ol>
         </div>
@@ -76,11 +96,22 @@
         </div>
       </section>
 
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>3. Cc3 ou 3. Cd2, au lieu de 3. e5.</strong> Ils défendent e4 avec un cavalier. Dans les deux cas, joue 3… Cf6 : ton cavalier attaque e4. Quand leur pion avance en e5, ton cavalier recule en d7 et tu attaques d4 avec ton pion c.</li>
+            <li><strong>6. Fd3, au lieu de 6. Fe2.</strong> Le fou blanc se met devant sa dame : d4 a l’air mal défendu. Cherche d’abord l’échec, comme dans le bon réflexe juste en dessous.</li>
+          </ul>
+        </div>
+      </section>
+
       <section class="ouv-reflexe">
         <div class="ouv-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
-          <h2>Compte les pièces autour de d4.</h2>
-          <p>Avant chaque coup, compte : combien de tes pièces attaquent le pion d4 ? Combien de pièces blanches le défendent ? Si tu peux en amener une de plus, amène-la.</p>
+          <h2>Compte autour de d4. Puis cherche l’échec.</h2>
+          <p>Avant de prendre d4, compte tes pièces qui l’attaquent et les pièces blanches qui le défendent. Puis cherche l’échec des Blancs : après 6. Fd3 cxd4 7. cxd4 Cxd4 8. Cxd4 Dxd4, leur fou donne échec en b5 et leur dame prend la tienne. Sors d’abord ton fou en d7 : cet échec disparaît. Après ça, tu peux prendre d4 : tu gagnes un pion. Regarde quand même ce que les Blancs gagnent en échange : leurs pièces sortent plus vite que les tiennes.</p>
         </div>
       </section>
 
@@ -97,7 +128,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -123,5 +155,6 @@
 
     <script src="/ouvertures/francaise/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

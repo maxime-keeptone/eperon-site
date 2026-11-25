@@ -22,7 +22,7 @@ window.OUVERTURE = {
     { de: 'g1', vers: 'f3', nom: 'Cf3', phrase: 'Le deuxième cavalier blanc sort et surveille e5, lui aussi.' },
     { de: 'e8', vers: 'g8', nom: 'O-O', phrase: 'Tu roques : ton roi est à l’abri, juste derrière ton fou.' },
     { de: 'f1', vers: 'e2', nom: 'Fe2', phrase: 'Le fou blanc sort d’un pas pour préparer le roque.' },
-    { de: 'e7', vers: 'e5', nom: 'e5', phrase: 'Tu attaques le centre blanc. Ton pion d6 défend ton pion e5.' },
+    { de: 'e7', vers: 'e5', nom: 'e5', phrase: 'Tu attaques le centre blanc. Si les Blancs échangent les pions, puis les dames, et prennent ton pion e5, ton cavalier prend leur pion e4 : le compte est bon.' },
     { de: 'e1', vers: 'g1', nom: 'O-O', phrase: 'Les Blancs roquent à leur tour.' },
     { de: 'b8', vers: 'c6', nom: 'Cc6', phrase: 'Ton cavalier sort et ajoute de la pression sur d4.' },
     { de: 'd4', vers: 'd5', nom: 'd5', phrase: 'Le pion blanc avance et attaque ton cavalier. Le centre se ferme.' },

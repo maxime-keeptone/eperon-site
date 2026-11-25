@@ -35,13 +35,33 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le mot en une phrase, et le plateau de l'exemple (mot.js le construit avec donnees.js). -->
       <section class="mot-haut">
         <div>
-          <p class="surtitre"><a class="mot-fil" href="/mots/">Les mots des échecs en clair</a></p>
+          <p class="surtitre fil"><a href="/mots/">Les mots des échecs</a></p>
           <h1>Le pion isolé, en clair.</h1>
           <h2 class="mot-etiquette">En une phrase</h2>
           <p class="mot-definition">Un pion isolé n’a plus aucun pion de sa couleur sur les colonnes voisines. Seules les pièces peuvent le défendre.</p>
@@ -66,7 +86,8 @@
         <div class="mot-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
           <h2>Pose une pièce juste devant lui.</h2>
-          <p>Un cavalier, de préférence. Le pion ne peut plus avancer, ta pièce est bien installée, et tu as tout ton temps pour amener tes autres pièces contre lui.</p>
+          <p>Un cavalier, de préférence. Le pion ne peut plus avancer et ta pièce est bien installée. Amène ensuite tes autres pièces contre lui, une par une : les siennes doivent rester le garder.</p>
+          <p>Et si c’est toi qui l’as ? Il te donne quelque chose en échange : des pièces actives, et des colonnes libres à côté de lui pour tes tours. Joue sans attendre : attaque avec tes pièces, ou pousse-le pour l’échanger.</p>
         </div>
       </section>
 
@@ -83,7 +104,8 @@
         <div class="mot-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -109,5 +131,6 @@
 
     <script src="/mots/pion-isole/donnees.js"></script>
     <script src="/mots/mot.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

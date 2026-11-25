@@ -34,9 +34,9 @@
 }
 .mot-definition {
   margin-top: 4px;
-  max-width: 30em;
+  max-width: var(--lecture);
   color: var(--text);
-  font-size: 19px;
+  font-size: var(--t-chapo);
   line-height: 1.4;
   text-wrap: pretty;
 }
@@ -70,6 +70,7 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 .mot-plateau {
+  margin: 0 auto;
   aspect-ratio: 1;
   border-radius: 6px;
   overflow: hidden;
@@ -90,45 +91,35 @@
 .mot-marque {
   fill: rgba(159, 208, 107, 0.55);
 }
+/* Les repères : les mêmes que sur l'accueil, discrets, de la couleur de la case d'en face. */
 .mot-repere {
   font-family: var(--font-body);
-  font-size: 27px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 700;
   pointer-events: none;
-  /* Un liseré de la couleur de la case : le repère reste lisible quand le pied d'une pièce passe derrière. */
-  paint-order: stroke;
-  stroke-width: 6px;
-  stroke-linejoin: round;
 }
 .mot-a-droite {
   text-anchor: end;
 }
-/* La couleur de la case d'en face, en plus marqué : ça se lit d'un coup d'œil, même sur une case surlignée. */
 .mot-sur-claire {
-  fill: #6f4827;
-  stroke: #ecd5b0;
+  fill: #b0835a;
 }
 .mot-sur-foncee {
-  fill: #fff6e6;
-  stroke: #b0835a;
-}
-/* Les repères font au moins 10 px à l'écran : plus gros dans le dessin quand le plateau est petit. */
-@media (max-width: 379px) {
-  .mot-repere {
-    font-size: 33px;
-  }
-}
-@media (min-width: 500px) {
-  .mot-repere {
-    font-size: 24px;
-  }
+  fill: #ecd5b0;
 }
 
-/* Le coup et sa raison. La place de trois lignes est gardée : rien ne bouge quand la phrase change. */
+/* Les boutons, juste sous le plateau : ils ne bougent jamais d'un coup à l'autre. */
+.mot-boutons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+/* Le coup et sa raison. La place de la plus longue phrase de l'exemple est gardée (au moins trois lignes) :
+   les phrases invisibles sont empilées derrière celle qu'on lit. Rien ne bouge quand la phrase change. */
 .mot-texte {
   display: grid;
   min-height: 108px;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 .mot-courant,
 .mot-gabarit {
@@ -150,18 +141,15 @@
   color: var(--text);
   text-wrap: pretty;
 }
-.mot-boutons {
-  display: flex;
-  margin-top: 8px;
-}
+/* Les boutons du plateau : des actions secondaires, les mêmes que sur les pages « ouvertures ». */
 .mot-bouton {
   flex: 1 1 0;
-  min-height: 48px;
+  min-height: var(--tap);
   padding: 0 6px;
+  border: 0;
   border-radius: var(--r-md);
-  border: 1px solid var(--border-strong);
-  background: var(--surface-strong);
-  color: var(--text);
+  background: var(--accent-soft);
+  color: var(--accent-text);
   font-family: var(--font-title);
   font-weight: 800;
   font-size: var(--t-corps);
@@ -170,22 +158,45 @@
   transition: background-color 120ms var(--ease);
 }
 .mot-bouton:hover {
-  background: rgba(255, 238, 214, 0.11);
-}
-.mot-bouton-montre {
-  border-color: transparent;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-}
-.mot-bouton-montre:hover {
   background: rgba(129, 182, 76, 0.24);
 }
-.mot-bouton-montre::after {
+.mot-precedent::before {
+  content: '‹ ';
+}
+.mot-suivant::after {
   content: ' ›';
 }
 .mot-bouton:disabled {
   opacity: 0.4;
   cursor: default;
+  /* Un toucher sur un bouton éteint passe à la page : le menu ouvert se ferme comme partout ailleurs. */
+  pointer-events: none;
+}
+/* « Recommencer » : sous la dernière phrase, loin de « Suivant ». Un double toucher ne tombe jamais dessus. */
+.mot-recommencer {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  margin-top: 4px;
+  padding: 0 14px 0 0;
+  border: 0;
+  background: none;
+  color: var(--accent-text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.mot-recommencer::before {
+  content: '↺ ';
+  white-space: pre;
+}
+.mot-recommencer:hover {
+  text-decoration: underline;
+}
+.mot-recommencer[hidden] {
+  display: none;
 }
 
 /* ---- La suite : les signes à gauche, le bon réflexe à droite (ordinateur) ---- */
@@ -214,7 +225,7 @@
 }
 .mot-reflexe-corps p:not(.surtitre) {
   margin-top: 10px;
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text);
   text-wrap: pretty;
 }
@@ -280,7 +291,7 @@
 }
 .mot-encart-corps p {
   margin-top: 10px;
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text-2);
   text-wrap: pretty;
 }
@@ -346,9 +357,6 @@
   .mot-etiquette {
     margin-top: 32px;
   }
-  .mot-definition {
-    font-size: 22px;
-  }
   .mot-plateau-place {
     margin-top: 0;
   }
@@ -395,5 +403,50 @@
   .mot-bouton,
   .mot-carte {
     transition: none;
+  }
+}
+
+/* ---- Ordinateur : pas de grand vide sous le titre. « Comment le reconnaître » monte sous la phrase, à côté du plateau ;
+   le bon réflexe prend toute la largeur dessous. Le titre garde sa place, l'ordre de lecture ne change pas. ---- */
+@media (min-width: 900px) {
+  main:has(> .mot-haut) {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    column-gap: 56px;
+    align-items: start;
+    max-width: var(--largeur);
+    margin: 0 auto;
+    padding: 16px var(--marge) 0;
+  }
+  main:has(> .mot-haut) > * {
+    grid-column: 1 / -1;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  main:has(> .mot-haut) > .mot-haut,
+  main:has(> .mot-haut) > .mot-suite {
+    display: contents;
+  }
+  main:has(> .mot-haut) > .mot-haut > :first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  main:has(> .mot-haut) > .mot-haut > .mot-plateau-place {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  main:has(> .mot-haut) > .mot-suite > .mot-signes {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 56px;
+  }
+  main:has(> .mot-haut) > .mot-suite > .mot-reflexe-corps {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 64px;
   }
 }

@@ -30,6 +30,10 @@
       var mot = mots[el.getAttribute('data-t-alt')];
       if (mot) el.setAttribute('alt', mot);
     });
+    document.querySelectorAll('[data-t-nom]').forEach(function (el) {
+      var mot = mots[el.getAttribute('data-t-nom')];
+      if (mot) el.setAttribute('aria-label', mot);
+    });
     document.querySelectorAll('[data-t-exemple]').forEach(function (el) {
       var mot = mots[el.getAttribute('data-t-exemple')];
       if (mot) el.setAttribute('placeholder', mot);

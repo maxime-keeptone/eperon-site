@@ -11,7 +11,7 @@
     <title>Le clouage aux échecs, en clair — Éperon</title>
     <meta
       name="description"
-      content="Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée juste derrière elle. Un exemple à regarder sur l’échiquier et le bon réflexe à garder."
+      content="Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée derrière elle, sur la même ligne. Un exemple à regarder sur l’échiquier et le bon réflexe à garder."
     />
     <link rel="canonical" href="https://eperon.io/mots/clouage/" />
     <!-- Ce que voient Google et les messageries quand on colle le lien. -->
@@ -19,7 +19,7 @@
     <meta property="og:site_name" content="Éperon" />
     <meta property="og:url" content="https://eperon.io/mots/clouage/" />
     <meta property="og:title" content="Le clouage, en clair" />
-    <meta property="og:description" content="Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée juste derrière elle." />
+    <meta property="og:description" content="Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée derrière elle, sur la même ligne." />
     <meta property="og:image" content="https://eperon.io/images/partage.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -35,16 +35,36 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le mot en une phrase, et le plateau de l'exemple (mot.js le construit avec donnees.js). -->
       <section class="mot-haut">
         <div>
-          <p class="surtitre"><a class="mot-fil" href="/mots/">Les mots des échecs en clair</a></p>
+          <p class="surtitre fil"><a href="/mots/">Les mots des échecs</a></p>
           <h1>Le clouage, en clair.</h1>
           <h2 class="mot-etiquette">En une phrase</h2>
-          <p class="mot-definition">Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée juste derrière elle.</p>
+          <p class="mot-definition">Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée derrière elle, sur la même ligne.</p>
         </div>
         <div class="mot-plateau-place">
           <div id="mot-plateau"></div>
@@ -58,15 +78,16 @@
         <div class="mot-signes">
           <h2>Comment le reconnaître</h2>
           <ol class="groupe etapes">
-            <li><span class="numero" aria-hidden="true">1</span><div><h3>Trois pièces sur une même ligne</h3><p>Ta pièce, une pièce adverse, puis une autre plus précieuse juste derrière. Sur une colonne, une rangée ou une diagonale.</p></div></li>
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Trois pièces sur une même ligne</h3><p>Ta pièce, une pièce adverse, puis une autre plus précieuse derrière, sans rien entre les deux. Sur une colonne, une rangée ou une diagonale.</p></div></li>
             <li><span class="numero" aria-hidden="true">2</span><div><h3>Une pièce qui voit loin</h3><p>Seuls le fou, la tour et la dame peuvent clouer.</p></div></li>
-            <li><span class="numero" aria-hidden="true">3</span><div><h3>Le roi est peut-être derrière</h3><p>Dans ce cas, la pièce clouée n’a plus le droit de quitter la ligne.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Regarde qui est derrière</h3><p>Le roi ? La pièce clouée n’a plus le droit de quitter la ligne. Une autre pièce, la dame par exemple ? Elle a le droit de bouger, mais elle le paie : tu prends ce qui était derrière.</p></div></li>
           </ol>
         </div>
         <div class="mot-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
-          <h2>Une pièce clouée ? Attaque-la encore.</h2>
-          <p>Elle ne peut pas s’enfuir. Amène une deuxième pièce contre elle, et si possible un pion : c’est lui qui coûte le moins cher.</p>
+          <h2>Une pièce clouée ? Regarde qui est derrière.</h2>
+          <p>Si c’est le roi, elle ne peut pas s’enfuir : attaque-la encore. Amène une deuxième pièce contre elle, et si possible un pion : c’est lui qui coûte le moins cher.</p>
+          <p>Si c’est une autre pièce, elle a le droit de partir, en payant. Attaque-la aussi, mais vérifie d’abord : si elle part, que prends-tu, et que fait-elle en partant ?</p>
         </div>
       </section>
 
@@ -83,7 +104,8 @@
         <div class="mot-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -109,5 +131,6 @@
 
     <script src="/mots/clouage/donnees.js"></script>
     <script src="/mots/mot.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

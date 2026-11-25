@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>Le Gambit dame refusé : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Tu joues 1. d4 d5 2. c4, les Noirs répondent e6, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Tu joues 1. d4 d5 2. c4, les Noirs répondent e6, et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-cote">Tu as les Blancs. Cette page te parle de ton côté.</p>
         </div>
         <div class="ouv-plateau-place">
@@ -75,11 +95,22 @@
         </div>
       </section>
 
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>L’échange en d5.</strong> Tu prends en d5 tôt, et leur pion e reprend. Le centre ne bouge plus. Ta tour vient sur la colonne c, et tes pions a et b avancent de ce côté.</li>
+            <li><strong>4… Cbd7, au lieu de 4… Fe7.</strong> Leur cavalier f6 a l’air <a class="lien-mot" href="/mots/clouage/">cloué</a>. Compte, puis cherche l’échec, comme dans le bon réflexe juste en dessous.</li>
+          </ul>
+        </div>
+      </section>
+
       <section class="ouv-reflexe">
         <div class="ouv-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
-          <h2>Avant d’échanger en d5, compte.</h2>
-          <p>Toute l’ouverture tourne autour du pion d5. Avant de prendre ou de pousser, demande-toi : combien de pièces l’attaquent, combien le défendent ? Celui qui compte bien choisit le bon moment.</p>
+          <h2>Avant de prendre en d5, compte. Puis cherche l’échec.</h2>
+          <p>Avant de prendre en d5, compte les pièces qui l’attaquent et celles qui le défendent. Puis cherche l’échec des Noirs : après 4… Cbd7 5. cxd5 exd5 6. Cxd5 Cxd5 7. Fxd8, leur fou donne échec en b4, tu dois donner ta dame, et ils gardent une pièce de plus. Joue plutôt 6. e3 : ton plan continue.</p>
         </div>
       </section>
 
@@ -96,7 +127,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -122,5 +154,6 @@
 
     <script src="/ouvertures/gambit-dame/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

@@ -14,6 +14,6 @@ window.MOT = {
   coups: [
     { de: 'd5', vers: 'c7', nom: 'Cc7+', phrase: 'Échec ! Ton cavalier attaque le roi et la tour à la fois. Personne ne peut le prendre.', cases: ['c7', 'e8', 'a8'] },
     { de: 'e8', vers: 'd7', nom: 'Rd7', phrase: 'Le roi doit se mettre à l’abri. La tour reste seule.' },
-    { de: 'c7', vers: 'a8', nom: 'Cxa8', phrase: 'Tu prends la tour. Deux pièces attaquées, une seule sauvée.' },
+    { de: 'c7', vers: 'a8', nom: 'Cxa8', phrase: 'Tu gagnes la tour : deux pièces attaquées, une seule sauvée. Ton cavalier est dans le coin et aura parfois du mal à ressortir, mais tu restes devant.' },
   ],
 };

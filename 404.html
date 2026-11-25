@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'" />
     <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
@@ -11,15 +11,41 @@
     <title>Page introuvable — Éperon</title>
     <link rel="icon" href="/images/icone-64.png" type="image/png" />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/articles.css" />
+    <link rel="stylesheet" href="/liens.css" />
   </head>
   <body>
     <header class="barre">
-      <a class="marque" href="/" aria-label="Éperon"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
-    <main class="introuvable">
-      <h1>Cette page n’existe pas.</h1>
-      <p class="hero-phrase">L’adresse est fausse ou la page a bougé. <span lang="en">This page doesn’t exist.</span></p>
-      <p><a class="bouton bouton-principal" href="/">Retour à l’accueil · Home</a></p>
+    <main>
+      <section class="art-haut introuvable">
+        <p class="surtitre fil"><a href="/">Accueil</a></p>
+        <h1>Cette page n’existe pas.</h1>
+        <p class="hero-phrase">L’adresse est fausse ou la page a bougé. <span lang="en">This page doesn’t exist.</span></p>
+        <p><a class="bouton bouton-principal" href="/">Retour à l’accueil · Home</a></p>
+      </section>
     </main>
+    <script src="/menu.js"></script>
   </body>
 </html>

@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>La Scandinave : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Sur 1. e4, tu réponds d5 tout de suite, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Sur 1. e4, tu réponds d5 tout de suite, et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-cote">Tu as les Noirs. Cette page te parle de ton côté, et le plateau est tourné vers toi.</p>
         </div>
         <div class="ouv-plateau-place">
@@ -59,9 +79,9 @@
           <h2>Le plan des Noirs</h2>
           <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
           <ol class="groupe etapes">
-            <li><span class="numero" aria-hidden="true">1</span><div><h3>Finis de sortir tes pièces</h3><p>Ton fou en b4 ou en e7, ton cavalier en d7, puis le roque. Ton camp est petit, mais très solide.</p></div></li>
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Finis de sortir tes pièces</h3><p>Ton fou en b4, à côté de ta dame : de là, il appuie sur le cavalier c3. Puis ton cavalier en d7, et le roque. Ton camp est petit, mais très solide.</p></div></li>
             <li><span class="numero" aria-hidden="true">2</span><div><h3>Tiens la case d5</h3><p>Tes pions c6 et e6 et ton cavalier f6 la gardent. C’est ton mur au centre.</p></div></li>
-            <li><span class="numero" aria-hidden="true">3</span><div><h3>Garde un chemin pour ta dame</h3><p>Elle est sortie tôt. Si on l’attaque, elle rentre en c7 ou en d8 : ton pion c6 lui a ouvert la route.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Garde un chemin pour ta dame</h3><p>Elle est sortie tôt. Au début, elle <a class="lien-mot" href="/mots/clouage/">clouait</a> le cavalier c3. Depuis 7. Fd2, c’est le fou blanc qui la regarde, derrière ce cavalier. Si ce cavalier saute en d5, ta dame est attaquée, et il surveille aussi c7 : elle rentre en d8. Tu peux aussi la rentrer en c7 avant, de toi-même.</p></div></li>
           </ol>
         </div>
         <div class="ouv-plan">
@@ -70,8 +90,19 @@
           <ol class="groupe etapes">
             <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils gagnent du temps sur ta dame</h3><p>Ta dame est sortie tôt. Ils aiment sortir une pièce en l’attaquant : ta dame doit alors rejouer, pendant qu’eux avancent leur jeu.</p></div></li>
             <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils posent un cavalier en e5</h3><p>C’est une belle case pour lui. De là, il regarde f7 et c6, dans ton camp.</p></div></li>
-            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils roquent et amènent une tour en e1</h3><p>Leur roi est à l’abri. Sur la colonne e, ils n’ont plus de pion : leur tour y voit loin.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils préparent la poussée d5</h3><p>Leur dame vient en e2, sur la colonne e, où ils n’ont plus de pion. Puis leur pion d4 avance en d5, pour ouvrir le jeu devant ton roi. Ta réponse : ton fou en b4, dès que leur dame arrive en e2. Il retient le cavalier c3, et cette poussée ne marche plus.</p></div></li>
           </ol>
+        </div>
+      </section>
+
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>3… Dd6 ou 3… Dd8, au lieu de 3… Da5.</strong> Deux autres cases pour ta dame. L’idée reste la même : elle se range, puis tu sors tes pièces.</li>
+            <li><strong>2… Cf6, au lieu de reprendre avec la dame.</strong> Ton cavalier vise le pion d5 et le reprend le plus souvent au coup suivant : ta dame reste chez elle.</li>
+          </ul>
         </div>
       </section>
 
@@ -79,7 +110,7 @@
         <div class="ouv-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
           <h2>Ta dame sort tôt : garde-lui une sortie.</h2>
-          <p>Avant chaque coup, demande-toi : si on attaque ma dame, où va-t-elle ? Tant qu’elle peut rentrer en c7 ou en d8, tu joues tranquille et tu sors tes pièces une par une.</p>
+          <p>Avant chaque coup, demande-toi : si on attaque ma dame, où va-t-elle ? Regarde surtout le cavalier c3 : s’il saute, le fou d2 attaque ta dame. Garde toujours la case d8 libre pour elle, et sors tes pièces une par une.</p>
         </div>
       </section>
 
@@ -96,7 +127,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -122,5 +154,6 @@
 
     <script src="/ouvertures/scandinave/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

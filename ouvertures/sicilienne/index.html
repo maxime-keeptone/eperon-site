@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>La Sicilienne : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Sur 1. e4, tu réponds c5, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Sur 1. e4, tu réponds c5, et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-ligne">Ici, on regarde la Sicilienne avec le fou en g7. C’est une des façons de la jouer.</p>
           <p class="ouv-cote">Tu as les Noirs. Cette page te parle de ton côté, et le plateau est tourné vers toi.</p>
         </div>
@@ -76,11 +96,22 @@
         </div>
       </section>
 
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>Fe3, f3, Dd2 et le grand roque.</strong> Ils roquent de l’autre côté et poussent leur pion h, en h4 puis en h5, vers ton roi. Toi, va vite sur la colonne c : leur roi est au bout.</li>
+            <li><strong>2. c3, au lieu de 2. Cf3.</strong> Ils veulent pousser d4 et reprendre avec un pion. Attaque e4 tout de suite, avec 2… Cf6 ou 2… d5.</li>
+          </ul>
+        </div>
+      </section>
+
       <section class="ouv-reflexe">
         <div class="ouv-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
           <h2>Un œil sur la case d5, toujours.</h2>
-          <p>Avant chaque coup, compte autour de la case d5. Au début, les Blancs la tiennent mieux que toi : leur cavalier c3 et leur pion e4, contre ton cavalier f6. Amène une pièce de plus vers elle. Quand c’est toi qui la tiens, pousse d5 : ton jeu s’ouvre.</p>
+          <p>Avant chaque coup, compte toutes les pièces qui regardent d5, la dame comprise. Pour les Blancs : le cavalier c3, le pion e4, et leur dame dès que le cavalier d4 s’en va. Pour toi : ton cavalier f6 et ta dame. Refais le compte à chaque coup. Après 9. h3, c’est deux contre deux : tu peux pousser d5. Après 9. Cb3, c’est trois contre deux : amène d’abord une pièce de plus, ton fou en e6.</p>
         </div>
       </section>
 
@@ -97,7 +128,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -123,5 +155,6 @@
 
     <script src="/ouvertures/sicilienne/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

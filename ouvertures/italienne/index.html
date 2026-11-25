@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>L’Italienne : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Tu joues 1. e4 e5 2. Cf3 Cc6 3. Fc4, et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Tu joues 1. e4 e5 2. Cf3 Cc6 3. Fc4, et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-cote">Tu as les Blancs. Cette page te parle de ton côté.</p>
         </div>
         <div class="ouv-plateau-place">
@@ -60,8 +80,8 @@
           <p class="ouv-plan-intro">Ce que tu veux faire, en trois idées.</p>
           <ol class="groupe etapes">
             <li><span class="numero" aria-hidden="true">1</span><div><h3>Sors tout ton monde</h3><p>Ton roi est roqué, ta tour est en e1. Maintenant, ton cavalier de b1 part en voyage : d2, f1, puis g3, du côté du roi noir.</p></div></li>
-            <li><span class="numero" aria-hidden="true">2</span><div><h3>Prépare la poussée d4</h3><p>Ton pion c3 est là pour ça. Quand tes pièces sont sorties, tu pousses d4 et tu prends le centre.</p></div></li>
-            <li><span class="numero" aria-hidden="true">3</span><div><h3>Garde ton fou italien</h3><p>C’est une de tes meilleures pièces. Si on vient l’attaquer, recule-le en b3 : de là, il regarde toujours vers f7.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Prépare la poussée d4</h3><p>Ton pion c3 est là pour ça. Quand tes pièces sont sorties, compte autour de d4 : s’il est assez soutenu, tu le pousses et tu prends le centre.</p></div></li>
+            <li><span class="numero" aria-hidden="true">3</span><div><h3>Garde ton fou italien</h3><p>C’est une de tes meilleures pièces. Si un pion vient l’attaquer, recule-le en b3 : de là, il regarde toujours vers f7. Si c’est leur cavalier, depuis a5, ton fou serait échangé en b3 : joue a4 avant, et il aura la case a2.</p></div></li>
           </ol>
         </div>
         <div class="ouv-plan">
@@ -69,9 +89,20 @@
           <p class="ouv-plan-intro">Ce que les Noirs veulent faire, pour que tu le voies venir.</p>
           <ol class="groupe etapes">
             <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils mettent leur fou à l’abri</h3><p>Leur pion a6 a préparé la case a7. Leur fou y recule : de là, il reste braqué sur le centre et sur ton pion f2.</p></div></li>
-            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils proposent l’échange des fous</h3><p>Leur deuxième fou sort en e6, en face de ton fou italien. À toi de choisir : tu prends, ou tu recules ton fou en b3 et tu les laisses décider.</p></div></li>
+            <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils proposent l’échange des fous</h3><p>Leur deuxième fou sort en e6, en face de ton fou italien. À toi de choisir. Si tu prends, leur pion f reprend, et leur tour gagne la colonne f. Sinon, recule ton fou en b3 et laisse-les décider.</p></div></li>
             <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils préparent la poussée d5</h3><p>C’est leur coup de liberté. Quand leurs pièces soutiennent bien e5, ils poussent d5 et leur jeu s’ouvre.</p></div></li>
           </ol>
+        </div>
+      </section>
+
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>3… Cf6, au lieu de 3… Fc5.</strong> Le cavalier noir attaque e4 tout de suite. Réponds 4. d3 : tu gardes le même plan.</li>
+            <li><strong>4. Cg5, après 3… Cf6.</strong> Ton cavalier et ton fou visent ensemble la case f7. Les Noirs répondent presque toujours 4… d5, qui ferme la route de ton fou. Prends : 5. exd5. Leur meilleure réponse est 5… Ca5, qui chasse ton fou : donne échec en b5, et tu gardes un pion de plus. S’ils reprennent en d5 avec le cavalier, f7 n’a que leur roi pour gardien : ton cavalier prend ce pion, et leur roi doit sortir.</li>
+          </ul>
         </div>
       </section>
 
@@ -79,7 +110,7 @@
         <div class="ouv-reflexe-corps">
           <p class="surtitre">Le bon réflexe</p>
           <h2>Les pièces d’abord, le centre ensuite.</h2>
-          <p>Avant chaque coup, demande-toi : quelle pièce n’a pas encore joué ? Fais-la jouer. Quand tout ton monde est sorti, pousse d4 et prends le centre.</p>
+          <p>Avant chaque coup, demande-toi : quelle pièce n’a pas encore joué ? Fais-la jouer. Quand tout ton monde est sorti, compte autour de d4 : combien de pièces le soutiennent, combien l’attaquent ? Regarde aussi ton pion e4 : après d4, ton pion d3 ne le défend plus. Compte qui le défend à ce moment-là. Si le compte est bon, cherche encore les échecs que les Noirs pourraient donner. Puis pousse d4.</p>
         </div>
       </section>
 
@@ -96,7 +127,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -122,5 +154,6 @@
 
     <script src="/ouvertures/italienne/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

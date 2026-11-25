@@ -35,13 +35,33 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/">Les ouvertures</a></li>
+          <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/">Les ouvertures</a></li>
+            <li><a href="/mots/" aria-current="true">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le mot en une phrase, et le plateau de l'exemple (mot.js le construit avec donnees.js). -->
       <section class="mot-haut">
         <div>
-          <p class="surtitre"><a class="mot-fil" href="/mots/">Les mots des échecs en clair</a></p>
+          <p class="surtitre fil"><a href="/mots/">Les mots des échecs</a></p>
           <h1>Le mat du couloir, en clair.</h1>
           <h2 class="mot-etiquette">En une phrase</h2>
           <p class="mot-definition">Le mat du couloir, c’est un échec et mat sur la dernière rangée : le roi est enfermé derrière ses propres pions.</p>
@@ -74,7 +94,7 @@
         <h2>Deux autres mots</h2>
         <ul class="mot-cartes">
           <li><a class="mot-carte" href="/mots/colonne-ouverte/"><h3 class="mot-carte-nom">La colonne ouverte</h3><span class="mot-carte-phrase">Une colonne ouverte est une colonne sans aucun pion. C’est une route libre pour tes tours, jusqu’au camp adverse.</span></a></li>
-          <li><a class="mot-carte" href="/mots/clouage/"><h3 class="mot-carte-nom">Le clouage</h3><span class="mot-carte-phrase">Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée juste derrière elle.</span></a></li>
+          <li><a class="mot-carte" href="/mots/clouage/"><h3 class="mot-carte-nom">Le clouage</h3><span class="mot-carte-phrase">Une pièce est clouée quand elle ne peut plus bouger sans laisser prendre une pièce plus précieuse placée derrière elle, sur la même ligne.</span></a></li>
         </ul>
         <p class="mot-tous"><a class="bouton bouton-lien" href="/mots/">Tous les mots</a></p>
       </section>
@@ -83,7 +103,8 @@
         <div class="mot-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="mot-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -109,5 +130,6 @@
 
     <script src="/mots/mat-du-couloir/donnees.js"></script>
     <script src="/mots/mot.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

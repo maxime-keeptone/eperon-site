@@ -35,15 +35,35 @@
   <body>
     <header class="barre">
       <a class="marque" href="/" aria-label="Éperon, retour à l’accueil"><img class="marque-logo" src="/images/eperon-logo.png" width="850" height="252" alt="Éperon" /></a>
+      <!-- Le menu « Apprendre » : en ligne à l’ordinateur, dans un pli au téléphone (liens.css). -->
+      <nav class="barre-apprendre" aria-label="Menu">
+        <ul class="barre-large">
+          <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+          <li><a href="/mots/">Les mots des échecs</a></li>
+          <li><a href="/questions/">Les questions des joueurs</a></li>
+          <li><a href="/journal/">Le journal</a></li>
+          <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+        </ul>
+        <details class="barre-pli">
+          <summary>Apprendre</summary>
+          <ul>
+            <li><a href="/ouvertures/" aria-current="true">Les ouvertures</a></li>
+            <li><a href="/mots/">Les mots des échecs</a></li>
+            <li><a href="/questions/">Les questions des joueurs</a></li>
+            <li><a href="/journal/">Le journal</a></li>
+            <li><a href="/pour-les-profs/">Profs et clubs</a></li>
+          </ul>
+        </details>
+      </nav>
     </header>
 
     <main>
       <!-- Le haut : le titre, et le plateau qu'on fait avancer coup par coup (ouverture.js le construit avec donnees.js). -->
       <section class="ouv-haut">
         <div>
-          <p class="surtitre"><a href="/ouvertures/">Les plans des ouvertures, expliqués simplement</a></p>
+          <p class="surtitre fil"><a href="/ouvertures/">Les ouvertures</a></p>
           <h1>Le Système de Londres : le plan, pas la théorie.</h1>
-          <p class="hero-phrase">Tu joues 1. d4, puis 2. Ff4, presque à chaque partie. Et après ? Voici quoi faire de tes pièces, sans rien apprendre par cœur.</p>
+          <p class="hero-phrase">Tu joues 1. d4, puis 2. Ff4, presque à chaque partie. Et après ? Voici quoi faire de tes pièces, avec la raison de chaque coup, plutôt qu’une liste à réciter.</p>
           <p class="ouv-cote">Tu as les Blancs. Cette page te parle de ton côté.</p>
         </div>
         <div class="ouv-plateau-place">
@@ -68,10 +88,21 @@
           <h2>Le plan des Noirs</h2>
           <p class="ouv-plan-intro">Ce que les Noirs veulent faire, pour que tu le voies venir.</p>
           <ol class="groupe etapes">
-            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils mettent la pression sur d4</h3><p>Leur pion c5 et leur cavalier c6 l’attaquent déjà. Leur dame peut venir en b6 : de là, elle vise ton pion b2.</p></div></li>
+            <li><span class="numero" aria-hidden="true">1</span><div><h3>Ils mettent la pression sur d4</h3><p>Leur pion c5 et leur cavalier c6 l’attaquent déjà. Leur dame peut venir en b6 : de là, elle vise ton pion b2. Ta réponse simple, avec ton pion en c3 : ta dame en b3. Elle défend b2 et propose l’échange des dames. Si leur pion avance en c4 pour la chasser, elle recule en c2. Mais regarde d’abord ce que leur dame laisse derrière elle. Dans la position de cette page, si elle part en b6, leur fou d6 n’est plus défendu : ton fou g3 peut le prendre.</p></div></li>
             <li><span class="numero" aria-hidden="true">2</span><div><h3>Ils proposent l’échange des fous</h3><p>Leur fou d6 est en face de ton fou de Londres, une de tes meilleures pièces. S’ils le prennent, ton pion h reprend et ta tour gagne une colonne.</p></div></li>
             <li><span class="numero" aria-hidden="true">3</span><div><h3>Ils préparent la poussée e5</h3><p>C’est leur coup de liberté. Leur cavalier c6 et leur fou d6 la soutiennent. Après elle, leur fou de c8 a enfin de l’air.</p></div></li>
           </ol>
+        </div>
+      </section>
+
+      <!-- Les autres chemins fréquents en club : un nom, une seule idée, sans plateau. -->
+      <section class="ouv-club">
+        <div class="ouv-club-corps">
+          <h2>Ce que tu verras aussi en club</h2>
+          <ul>
+            <li><strong>… c5 et … Db6 très tôt.</strong> Leur dame vise ton pion b2 dès les premiers coups. Ton pion est encore en c2 ? Sors ton cavalier en c3 : si leur dame prend b2, il saute en b5 et menace l’échec en c7, sur le roi et la tour. Ton pion est déjà en c3 ? Joue Db3 : ta dame défend b2 et propose l’échange. Si leur pion avance en c4 pour la chasser, elle recule en c2.</li>
+            <li><strong>… g6 et … Fg7, au lieu de … e6.</strong> Leur fou vise ton centre de loin. Garde ton installation, et joue h3 : si un cavalier noir vient en h5 chasser ton fou, il recule en h2.</li>
+          </ul>
         </div>
       </section>
 
@@ -96,7 +127,8 @@
         <div class="ouv-encart-corps">
           <h2>Éperon t’explique les positions de tes parties avec des mots simples.</h2>
           <p>Éperon est un coach d’échecs à installer sur ton ordinateur. Première version, bientôt à télécharger.</p>
-          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="/">Découvrir Éperon</a></p>
+          <p class="ouv-encart-bouton"><a class="bouton bouton-principal" href="https://discord.gg/Xv5nVZFZyy" target="_blank" rel="noopener">Rejoindre le salon Discord</a> <a class="bouton bouton-second" href="/">Découvrir Éperon</a></p>
+          <p class="note encart-note">Discord : un salon de discussion gratuit, où l’on parle du projet avec Maxime.</p>
         </div>
       </section>
     </main>
@@ -122,5 +154,6 @@
 
     <script src="/ouvertures/systeme-de-londres/donnees.js"></script>
     <script src="/ouvertures/ouverture.js"></script>
+    <script src="/menu.js"></script>
   </body>
 </html>

@@ -26,7 +26,7 @@
 /* « Ici, on regarde… » : la page dit quelle façon de jouer elle montre. */
 .ouv-ligne {
   margin-top: 6px;
-  max-width: 44em;
+  max-width: var(--lecture);
   color: var(--text-3);
   font-size: var(--t-petit);
   text-wrap: pretty;
@@ -37,7 +37,7 @@
 /* « Tu as les Noirs. » : de quel côté la page parle. */
 .ouv-cote {
   margin-top: 10px;
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text);
   font-weight: 700;
   text-wrap: pretty;
@@ -72,6 +72,7 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 .ouv-plateau {
+  margin: 0 auto;
   aspect-ratio: 1;
   border-radius: 6px;
   overflow: hidden;
@@ -92,44 +93,44 @@
 .ouv-marque {
   fill: rgba(159, 208, 107, 0.55);
 }
+/* Les repères : les mêmes que sur l'accueil, discrets, de la couleur de la case d'en face. */
 .ouv-repere {
   font-family: var(--font-body);
-  font-size: 27px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 700;
   pointer-events: none;
-  /* Un liseré de la couleur de la case : le repère reste lisible quand le pied d'une pièce passe derrière. */
-  paint-order: stroke;
-  stroke-width: 6px;
-  stroke-linejoin: round;
 }
 .ouv-a-droite {
   text-anchor: end;
 }
-/* La couleur de la case d'en face, en plus marqué : ça se lit d'un coup d'œil, même sur une case surlignée. */
 .ouv-sur-claire {
-  fill: #6f4827;
-  stroke: #ecd5b0;
+  fill: #b0835a;
 }
 .ouv-sur-foncee {
-  fill: #fff6e6;
-  stroke: #b0835a;
-}
-/* Les repères font au moins 10 px à l'écran : plus gros dans le dessin quand le plateau est petit. */
-@media (max-width: 379px) {
-  .ouv-repere {
-    font-size: 33px;
-  }
-}
-@media (min-width: 500px) {
-  .ouv-repere {
-    font-size: 24px;
-  }
+  fill: #ecd5b0;
 }
 
-/* Le coup et sa raison. La place de trois lignes est gardée : rien ne bouge quand la phrase change. */
+/* Les boutons, juste sous le plateau : ils ne bougent jamais d'un coup à l'autre. */
+.ouv-boutons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+/* Le coup et sa raison. La place de la plus longue phrase de la page est gardée (au moins trois lignes) :
+   les phrases invisibles sont empilées derrière celle qu'on lit. Rien ne bouge quand la phrase change. */
 .ouv-texte {
+  display: grid;
   min-height: 108px;
-  margin-top: 14px;
+  margin-top: 12px;
+}
+.ouv-courant,
+.ouv-gabarit {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+.ouv-gabarit {
+  visibility: hidden;
+  pointer-events: none;
 }
 .ouv-coup {
   color: var(--accent-text);
@@ -143,19 +144,15 @@
   text-wrap: pretty;
 }
 
-.ouv-boutons {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
+/* Les boutons du plateau : des actions secondaires, comme sur l'accueil et les pages des mots. */
 .ouv-bouton {
   flex: 1 1 0;
   min-height: var(--tap);
   padding: 0 6px;
+  border: 0;
   border-radius: var(--r-md);
-  border: 1px solid var(--border-strong);
-  background: var(--surface-strong);
-  color: var(--text);
+  background: var(--accent-soft);
+  color: var(--accent-text);
   font-family: var(--font-title);
   font-weight: 800;
   font-size: var(--t-corps);
@@ -164,14 +161,6 @@
   transition: background-color 120ms var(--ease);
 }
 .ouv-bouton:hover {
-  background: rgba(255, 238, 214, 0.11);
-}
-.ouv-suivant {
-  border-color: transparent;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-}
-.ouv-suivant:hover {
   background: rgba(129, 182, 76, 0.24);
 }
 .ouv-precedent::before {
@@ -183,6 +172,8 @@
 .ouv-bouton:disabled {
   opacity: 0.4;
   cursor: default;
+  /* Un toucher sur un bouton éteint passe à la page : le menu ouvert se ferme comme partout ailleurs. */
+  pointer-events: none;
 }
 
 /* Toute la suite, coup par coup : chaque coup se touche. */
@@ -190,7 +181,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0 10px;
-  margin-top: 12px;
+  margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid var(--border);
 }
@@ -211,7 +202,7 @@
   background: none;
   color: var(--text-2);
   font: inherit;
-  font-size: 15px;
+  font-size: var(--t-petit);
   font-weight: 600;
   cursor: pointer;
 }
@@ -302,7 +293,7 @@
 }
 .ouv-reflexe-corps p:not(.surtitre) {
   margin-top: 10px;
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text);
   text-wrap: pretty;
 }
@@ -316,12 +307,9 @@
 }
 .ouv-encart-corps p {
   margin-top: 10px;
-  max-width: 36em;
+  max-width: var(--lecture);
   color: var(--text-2);
   text-wrap: pretty;
-}
-.ouv-encart-corps .bouton {
-  margin-top: 8px;
 }
 .ouv-encart-corps .ouv-encart-bouton {
   margin-top: 20px;
@@ -349,8 +337,14 @@
     order: 0; /* l'accueil la déplace au téléphone ; ici elle reste sous le titre */
     margin-top: 8px;
   }
+  .ouv-ligne {
+    margin-top: 4px;
+  }
   .ouv-plateau-place {
-    margin-top: 16px;
+    margin-top: 8px;
+  }
+  .ouv-carte {
+    padding-top: 10px;
   }
   .ouv-cote {
     order: 1;
@@ -419,5 +413,124 @@
   .ouv-autres a,
   .ouv-bouton {
     transition: none;
+  }
+}
+
+/* ---- « Ce que tu verras aussi en club » : les autres chemins fréquents, sous les deux plans. Un nom, une idée, sans plateau. ---- */
+.ouv-club {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 40px var(--marge) 0;
+}
+.ouv-club-corps {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+.ouv-club h2 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.ouv-club ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.ouv-club li {
+  max-width: var(--lecture);
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.ouv-club strong {
+  color: var(--text);
+  font-weight: 700;
+}
+@media (min-width: 900px) {
+  .ouv-club {
+    padding-top: 56px;
+  }
+  .ouv-club-corps {
+    padding: 28px 48px;
+  }
+  .ouv-club h2 {
+    font-size: 24px;
+  }
+}
+
+/* ---- Le bon réflexe sur le plateau : « Voir sur le plateau » dans le réflexe, « Revenir à la ligne principale » sous le plateau ---- */
+#ouverture-plateau {
+  scroll-margin-top: 12px;
+}
+.ouv-voir {
+  min-height: var(--tap);
+  margin-top: 6px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--t-corps);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.ouv-voir:hover {
+  background: rgba(129, 182, 76, 0.24);
+}
+.ouv-retour {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+.ouv-retour[hidden] {
+  display: none;
+}
+
+/* ---- Ordinateur : pas de grand vide sous le titre. Deux colonnes qui se remplissent chacune de son côté :
+   à gauche le titre puis les deux plans, à droite le plateau puis « Ce que tu verras aussi en club ».
+   Le titre garde sa place ; l'ordre de lecture de la page ne change pas (titre, plateau, plans, club, bon réflexe). ---- */
+@media (min-width: 900px) {
+  main:has(> .ouv-haut) {
+    display: flow-root;
+    max-width: var(--largeur);
+    margin: 0 auto;
+    padding: 16px var(--marge) 0;
+  }
+  main:has(> .ouv-haut) > * {
+    clear: both;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  main:has(> .ouv-haut) > .ouv-haut {
+    display: contents;
+  }
+  main:has(> .ouv-haut) > .ouv-haut > :first-child,
+  main:has(> .ouv-haut) > .ouv-plans {
+    float: left;
+    clear: left;
+    width: calc((100% - 56px) * 7 / 12);
+  }
+  main:has(> .ouv-haut) > .ouv-haut > .ouv-plateau-place,
+  main:has(> .ouv-haut) > .ouv-club {
+    float: right;
+    clear: right;
+    width: calc((100% - 56px) * 5 / 12);
+  }
+  main:has(> .ouv-haut) > .ouv-plans {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding-top: 56px;
+  }
+  main:has(> .ouv-haut) > .ouv-club {
+    padding-top: 32px;
+  }
+  main:has(> .ouv-haut) > .ouv-club .ouv-club-corps {
+    padding: 24px;
+  }
+  main:has(> .ouv-haut) > .ouv-reflexe {
+    padding-top: 64px;
   }
 }

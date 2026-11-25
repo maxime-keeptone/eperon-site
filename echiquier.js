@@ -478,6 +478,11 @@
     couchePieces.appendChild(image);
   }
 
+  // En français, l'espace devant « : ; ? ! » ne se coupe pas : le signe ne part jamais seul à la ligne. Aucun mot ne change.
+  function insecable(t) {
+    return String(t || '').replace(/ (?=[:;?!])/g, '\u00a0');
+  }
+
   // Coupe un texte après sa première phrase, sans rien y changer : [la première phrase, tout le reste].
   // Une phrase finit par un point (ou ! ? …) suivi d'un blanc puis d'une majuscule ; le point de « 1. e4 » n'en est pas une fin.
   function premierePhrase(t) {
@@ -502,13 +507,15 @@
     sur.textContent = etat === 'jeu' && !messageCle ? mot(plan ? 'ev-question-coach' : 'ev-a-toi') : '';
     // La question : en anglais si l'exemple la donne et que la page est en anglais.
     var enAnglais = langue === 'en' && !!ex.question_en;
-    question.textContent = (enAnglais ? ex.question_en : ex.question) || '';
+    question.textContent = enAnglais ? ex.question_en : insecable(ex.question);
     question.lang = enAnglais ? 'en' : 'fr';
     // La réponse du coach, elle, reste en français : on le dit avant de jouer, sous la question.
     noteLangue.textContent = mot('ev-en-francais');
     points.setAttribute('aria-label', mot('ev-exemples'));
     boutonsPoints.forEach(function (b, i) {
-      b.setAttribute('aria-label', mot('ev-exemple') + ' ' + (i + 1) + (exemples[i].titre ? ' : ' + exemples[i].titre : ''));
+      // Le titre de l'exemple : celui de exemples.js en français, sa traduction (textes.js) en anglais.
+      var titre = (langue === 'en' && mot('ev-titre-' + (window.EXEMPLES.indexOf(exemples[i]) + 1))) || exemples[i].titre;
+      b.setAttribute('aria-label', mot('ev-exemple') + ' ' + (i + 1) + (titre ? (langue === 'en' ? ': ' + titre : insecable(' : ' + titre)) : ''));
       if (i === rang) b.setAttribute('aria-current', 'true');
       else b.removeAttribute('aria-current');
     });
@@ -533,8 +540,8 @@
       texte.lang = 'fr';
       // Aucun mot ne change : la première phrase est seulement montrée en clair, la suite en gris.
       var morceaux = premierePhrase(ex.reponse_du_coach || '');
-      el('span', 'ev-coach-debut', texte).textContent = morceaux[0];
-      if (morceaux[1]) el('span', 'ev-coach-suite', texte).textContent = morceaux[1];
+      el('span', 'ev-coach-debut', texte).textContent = insecable(morceaux[0]);
+      if (morceaux[1]) el('span', 'ev-coach-suite', texte).textContent = insecable(morceaux[1]);
     }
     if (pos) dessin.setAttribute('aria-label', decrire());
   }

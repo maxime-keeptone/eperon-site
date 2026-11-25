@@ -24,4 +24,18 @@ window.OUVERTURE = {
     { de: 'a1', vers: 'c1', nom: 'Tc1', phrase: 'Ta tour se place sur la colonne c, celle qui s’ouvrira quand les pions s’échangeront.' },
     { de: 'c7', vers: 'c6', nom: 'c6', phrase: 'Les Noirs soutiennent d5 une fois de plus. Tout le monde est prêt : place aux plans.' },
   ],
+  // La suite du bon réflexe, pour le bouton « Voir sur le plateau » : on garde les 7 premiers demi-coups (jusqu’à 4. Fg5), puis ceux-ci.
+  // Vérifiés légaux avec python-chess, et au moteur (après 7… Fb4+, les Noirs gagnent une pièce), le 25 novembre 2026.
+  reflexe: {
+    depuis: 7,
+    coups: [
+      { de: 'b8', vers: 'd7', nom: 'Cbd7', phrase: 'Un autre coup des Noirs. Leur cavalier f6 a l’air cloué : leur dame est juste derrière lui.' },
+      { de: 'c4', vers: 'd5', nom: 'cxd5', phrase: 'Tu prends en d5.' },
+      { de: 'e6', vers: 'd5', nom: 'exd5', phrase: 'Les Noirs reprennent avec le pion.' },
+      { de: 'c3', vers: 'd5', nom: 'Cxd5', phrase: 'Ton cavalier prend le pion d5. Si le cavalier f6 reprend, ton fou prend la dame.' },
+      { de: 'f6', vers: 'd5', nom: 'Cxd5', phrase: 'Il reprend quand même, et laisse sa dame.' },
+      { de: 'g5', vers: 'd8', nom: 'Fxd8', phrase: 'Ton fou prend la dame. Cherche l’échec des Noirs.' },
+      { de: 'f8', vers: 'b4', nom: 'Fb4+', phrase: 'Échec. Ton seul coup : ta dame en d2. Leur fou la prend, leur roi reprend ton fou, et ils gardent une pièce de plus.' },
+    ],
+  },
 };
