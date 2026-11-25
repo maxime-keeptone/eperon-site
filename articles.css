@@ -221,3 +221,13 @@
     transition: none;
   }
 }
+
+/* Deux paragraphes simples à droite d'un titre (page des profs et des clubs). */
+.art-paras p {
+  max-width: 36em;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.art-paras p + p {
+  margin-top: 12px;
+}
