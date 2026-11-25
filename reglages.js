@@ -12,8 +12,8 @@ window.REGLAGES = {
   adresseAvis: '',
 
   // Adresse du salon de discussion (l'invitation Discord). Vide = « Le salon de discussion ouvre bientôt ».
-  // ATTENTION : ce lien-ci expire le 24 décembre 2026. À remplacer par un lien sans date de fin.
-  adresseDiscussion: 'https://discord.gg/FC2ppB2Vm',
+  // Lien sans date de fin, créé par Maxime le 25 novembre 2026 (vérifié chez Discord).
+  adresseDiscussion: 'https://discord.gg/Xv5nVZFZyy',
 
   // LA LISTE D'ATTENTE — pas encore ouverte.
   // Le lien de partage du formulaire d'inscription. La page montre alors un bouton « Laisser mon adresse » qui y mène.
