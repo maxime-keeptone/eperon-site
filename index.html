@@ -77,10 +77,10 @@
             <p class="bloc-phrase" data-t="dif-phrase">Un coach d’échecs au prix coûtant : Éperon est gratuit et ne prend rien sur l’IA.</p>
           </div>
           <ul class="groupe apparait">
-            <li><h3 data-t="dif-1-t">Un plan, pas seulement un coup</h3><p data-t="dif-1-p">Un moteur te donne un coup. Éperon te donne le plan, avec des mots simples.</p></li>
-            <li><h3 data-t="dif-2-t">Chaque coup est vérifié</h3><p data-t="dif-2-p">Une IA seule peut citer un coup qui n’existe pas. Éperon contrôle avec Stockfish chaque coup de la réponse avant de te la montrer. Si un coup est faux, la réponse est refaite.</p></li>
+            <li><h3 data-t="dif-1-t">Un plan, pas seulement un coup</h3><p data-t="dif-1-p">Un moteur te dit : « il fallait jouer ce coup ». Éperon te dit pourquoi : ta structure de pions, ton avance de développement, un roi mal protégé. Il compte les déséquilibres de la position et en tire un plan, avec des mots simples.</p></li>
+            <li><h3 data-t="dif-2-t">Chaque coup est vérifié</h3><p data-t="dif-2-p">Une IA seule peut citer un coup qui n’existe pas. Éperon contrôle avec Stockfish chaque coup de la réponse avant de te la montrer.</p></li>
             <li><h3 data-t="dif-3-t">Tes vraies parties</h3><p data-t="dif-3-p">Il part de ce qui te coûte des points, à toi. Pas d’une moyenne.</p></li>
-            <li><h3 data-t="dif-4-t">Le prix coûtant</h3><p data-t="dif-4-p">Chez toi, Éperon est gratuit. Le vrai coach passe par ton propre accès à Claude : c’est ce fournisseur que tu paies, pas Éperon. Sans cet accès, le coach reste très simple.</p></li>
+            <li><h3 data-t="dif-4-t">Le prix coûtant</h3><p data-t="dif-4-p">Éperon est gratuit, l’analyse par Stockfish aussi. Seul ce que Claude écrit se paie : par l’API d’Anthropic, avec ta propre clé (modèle Claude Opus 5.5 par défaut). Mesuré pendant mes essais : environ 0,15 $ pour le bilan d’une session de jeu et cinq questions. Sans clé, un coach simple répond.</p></li>
           </ul>
         </section>
       </section>
@@ -144,7 +144,7 @@
         <ol class="groupe etapes apparait">
           <li><span class="numero" aria-hidden="true">1</span><div><h3 data-t="cm-1-t">Tes parties</h3><p data-t="cm-1-p">Tu donnes ton pseudo Chess.com ou Lichess. Éperon va chercher tes parties tout seul.</p></div></li>
           <li><span class="numero" aria-hidden="true">2</span><div><h3 data-t="cm-2-t">Le calcul</h3><p data-t="cm-2-p">Stockfish, l’un des moteurs d’échecs les plus forts du monde, analyse chaque coup, sur ton ordinateur.</p></div></li>
-          <li><span class="numero" aria-hidden="true">3</span><div><h3 data-t="cm-3-t">L’explication</h3><p data-t="cm-3-p">Éperon ne fournit pas l’IA. Il donne à Claude, que tu branches avec ton propre accès, le calcul du moteur et tes parties.</p></div></li>
+          <li><span class="numero" aria-hidden="true">3</span><div><h3 data-t="cm-3-t">L’explication</h3><p data-t="cm-3-p">Éperon ne fournit pas l’IA. Il donne à Claude, que tu branches avec ta clé API, le calcul du moteur et tes parties.</p></div></li>
           <li><span class="numero" aria-hidden="true">4</span><div><h3 data-t="cm-4-t">Ton travail</h3><p data-t="cm-4-p">Chaque jour, une séance courte : des exercices tirés de tes propres parties, et des problèmes classiques.</p></div></li>
         </ol>
       </section>
@@ -187,7 +187,7 @@
       <section class="bloc" id="installer">
         <div class="bloc-tete apparait">
           <h2 data-t="inst-titre">L’installer chez toi</h2>
-          <p class="bloc-phrase" data-t="inst-phrase">Éperon tourne sur ton ordinateur. Trois questions, trois réponses courtes.</p>
+          <p class="bloc-phrase" data-t="inst-phrase">Éperon tourne sur ton ordinateur. Cinq questions, cinq réponses courtes.</p>
         </div>
         <div class="apparait">
           <div class="groupe plis reponses">
@@ -197,7 +197,16 @@
             </details>
             <details>
               <summary><h3 data-t="q-2-t">Qu’est-ce qui se paie ?</h3></summary>
-              <p data-t="q-2-p">Le vrai coach passe par Claude, une IA, que tu branches avec ton propre accès. C’est ce fournisseur que tu paies, pas Éperon. Tes questions partent alors chez lui ; sinon, rien ne sort de chez toi.</p>
+              <p data-t="q-2-p">Seulement l’IA. Le vrai coach utilise l’API d’Anthropic (modèle Claude Opus 5.5 par défaut) avec ta propre clé : tu paies Anthropic à l’usage, pas Éperon. Tes questions partent alors chez Anthropic ; sans clé, elles ne sortent pas de chez toi.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="q-4-t">Combien ça coûte ?</h3></summary>
+              <p data-t="q-4-p">L’analyse par Stockfish ne coûte rien : elle tourne sur ton ordinateur. Ce que Claude écrit se paie : environ 0,15 $ pour le bilan d’une session de jeu et cinq questions au coach. C’est une moyenne : de 0,05 à 0,40 $ selon les cas.</p>
+              <p class="note" data-t="q-4-note">Mesuré par le compteur de l’appli, sur mon compte, pendant mes essais du 22 au 25 novembre 2026, avec Claude Opus 5.5 : 126 demandes, 3,20 $. Ce n’est pas une facture ; ton coût dépendra de ton usage.</p>
+            </details>
+            <details>
+              <summary><h3 data-t="q-5-t">Comment je branche Claude ?</h3></summary>
+              <p data-t="q-5-p">Crée un compte sur platform.claude.com, ajoute du crédit, crée une clé API. Colle-la dans Éperon : il l’essaie tout de suite.</p>
             </details>
             <details>
               <summary><h3 data-t="q-3-t">C’est pour quand ?</h3></summary>
@@ -235,7 +244,7 @@
                 <h4 data-t="inst-0-t">Le harnais</h4>
                 <p data-t="inst-0-p">Éperon ne fournit pas l’IA : c’est un harnais d’échecs. Il donne à Claude, que tu branches toi-même, le calcul du moteur et tes parties, et relit chaque réponse avant de te la montrer.</p>
                 <h4 data-t="inst-3-t">Le vrai coach demande ta clé</h4>
-                <p data-t="inst-3-p">Sans clé, un coach simple répond, gratuitement. Avec ta propre clé Claude, c’est le vrai coach : tes questions et les positions dont tu parles partent alors chez ce fournisseur, et c’est lui que tu paies. Le branchement d’une autre IA est construit mais pas encore essayé.</p>
+                <p data-t="inst-3-p">Sans clé, un coach simple répond, gratuitement. Avec ta clé API Anthropic, c’est le vrai coach : tes questions et les positions dont tu parles partent alors chez Anthropic, et c’est Anthropic que tu paies. Le branchement d’une autre IA est construit mais pas encore essayé.</p>
                 <h4 data-t="inst-1-t">Gratuit, et le code sera visible par tous</h4>
                 <p data-t="inst-1-p">Le code sera publié : tu pourras le lire et le faire tourner chez toi. La licence n’est pas encore choisie.</p>
                 <h4 data-t="inst-5-t">Bientôt : ton vrai échiquier</h4>
