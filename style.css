@@ -1081,3 +1081,125 @@ h1 {
     max-width: calc(var(--lecture) + 112px);
   }
 }
+
+/* ---- Être prévenu par courriel (dans « L'installer chez toi ») ---- */
+.carte-liste {
+  margin-top: 16px;
+  padding: 16px;
+}
+.carte-liste label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-family: var(--font-title);
+  font-weight: 800;
+  text-wrap: pretty;
+}
+.champ-ligne {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.carte-liste input[type='email'] {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--text);
+  font: inherit;
+  font-size: max(16px, 1em); /* à moins de 16, l'iPhone zoome quand on touche le champ */
+}
+.carte-liste input::placeholder {
+  color: var(--text-3);
+}
+.carte-liste input:focus-visible {
+  border-color: var(--accent-text);
+  outline-offset: 1px;
+}
+.carte-liste input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+.carte-liste input[readonly] {
+  opacity: 0.7;
+}
+.liste-piege {
+  display: none;
+}
+.carte-liste .note {
+  margin-top: 12px;
+  color: var(--text-3);
+}
+.carte-liste .message:empty {
+  display: none;
+}
+.carte-liste .message {
+  margin-top: 10px;
+  font-weight: 700;
+  color: var(--danger);
+}
+.carte-liste .message.reussite {
+  margin-top: 0;
+  color: var(--accent-text);
+}
+.carte-liste form[data-fait='oui'] {
+  display: none;
+}
+@media (min-width: 700px) {
+  .champ-ligne {
+    flex-direction: row;
+  }
+  .champ-ligne .bouton {
+    flex: none;
+  }
+  .carte-liste {
+    padding: 20px;
+  }
+}
+/* La case « essayer avant tout le monde » : toute la ligne se touche. */
+.carte-liste .liste-choix {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: var(--tap);
+  margin: 12px 0 0;
+  padding: 10px 0 0;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-weight: 400;
+  cursor: pointer;
+}
+.carte-liste .liste-choix input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  accent-color: #81b64c;
+}
+
+/* « Pourquoi c'est différent » vit dans le haut de page : le cadre du haut de page donne déjà les marges. */
+.hero > .bloc {
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* Téléphone : il passe juste après les boutons, AVANT l'échiquier (demande de Maxime, 26 novembre). */
+@media (max-width: 899px) {
+  .hero > .bloc {
+    order: 4;
+    padding-top: 32px;
+  }
+  .hero-image {
+    order: 5;
+    margin-top: 32px;
+  }
+}
+/* Ordinateur : sous le texte et l'échiquier, sur toute la largeur, au même écart qu'avant. */
+@media (min-width: 900px) {
+  .hero > .bloc {
+    grid-column: 1 / -1;
+    padding-top: 64px;
+  }
+}

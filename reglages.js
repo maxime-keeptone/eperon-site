@@ -20,8 +20,10 @@ window.REGLAGES = {
   // Vide = la page dit que la liste n'est pas encore ouverte.
   adresseFormulaire: '',
 
-  // Autre voie, pour le jour où Éperon aura son propre serveur : une adresse qui reçoit {email, langue} en JSON.
-  // La page montre alors son propre champ. Laisser vide tant que le formulaire sert.
+  // Le champ de la page : une adresse qui reçoit {email, langue} en JSON.
+  // Aujourd'hui : le service gratuit Web3Forms (250 inscriptions par mois), qui les envoie dans la boîte de Maxime :
+  // 'https://api.web3forms.com/submit/' suivi de la clé d'accès. Vide = pas de champ sur la page.
+  // Si l'adresse change de service, changer aussi « connect-src » en tête de index.html.
   adresseListe: '',
 
   // Adresse de l'appli en ligne, le jour où elle existe. Vide = la page parle de « plus tard ».

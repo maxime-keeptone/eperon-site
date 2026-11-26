@@ -78,13 +78,16 @@
   var bouton = document.getElementById('liste-bouton');
   var message = document.getElementById('liste-message');
   var reussite = document.getElementById('liste-reussite');
+  var piege = document.getElementById('liste-piege');
+  var beta = document.getElementById('liste-beta');
   var etatListe = '';
 
   function dire(etat) {
     etatListe = etat;
     if (!message) return;
     // La réussite remplace le formulaire ; le reste s'écrit contre le champ.
-    var ou = etat === 'ok' ? reussite : message;
+    var reussi = etat === 'ok' || etat === 'ok-beta';
+    var ou = reussi ? reussite : message;
     message.textContent = '';
     reussite.textContent = '';
     ou.textContent = etat ? mots['liste-' + etat] : '';
@@ -109,20 +112,38 @@
       // Pendant l'envoi, ce qui est tapé est gelé jusqu'à la réponse.
       champ.readOnly = true;
       bouton.disabled = true;
+      if (beta) beta.disabled = true;
+      var veutEssayer = !!(beta && beta.checked);
       bouton.textContent = mots['liste-envoi'];
       dire('');
+      // Sans réponse au bout de vingt secondes, on le dit : l'adresse tapée reste là.
+      var coupure = window.AbortController ? new AbortController() : null;
+      var delai = setTimeout(function () {
+        if (coupure) coupure.abort();
+      }, 20000);
       fetch(R.adresseListe, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: adresse, langue: racine.lang }),
+        body: JSON.stringify({ email: adresse, langue: racine.lang, subject: veutEssayer ? 'Éperon : une inscription + place d’essai' : 'Éperon : une inscription', essai: veutEssayer ? 'oui' : 'non', botcheck: !!(piege && piege.checked) }),
+        signal: coupure ? coupure.signal : undefined,
       })
         .then(function (r) {
+          clearTimeout(delai);
           if (!r.ok) throw new Error('refus');
+          return r.json().catch(function () {
+            return {};
+          });
+        })
+        .then(function (reponse) {
+          // Le service répond « success: false » quand il refuse (quota du mois atteint, clé fausse).
+          if (reponse && reponse.success === false) throw new Error('refus');
           formulaire.setAttribute('data-fait', 'oui');
-          dire('ok');
+          dire(veutEssayer ? 'ok-beta' : 'ok');
         })
         .catch(function () {
+          clearTimeout(delai);
           champ.readOnly = false;
+          if (beta) beta.disabled = false;
           bouton.disabled = false;
           bouton.textContent = mots['liste-bouton'];
           dire('erreur');
@@ -133,7 +154,7 @@
   // Dès qu'on retape, le message d'erreur s'efface.
   if (champ)
     champ.addEventListener('input', function () {
-      if (etatListe && etatListe !== 'ok') dire('');
+      if (etatListe && etatListe !== 'ok' && etatListe !== 'ok-beta') dire('');
     });
 
   // ---- Remonter en haut ----
